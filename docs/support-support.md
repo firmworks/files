@@ -1,3 +1,7 @@
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
+
 # Grant FirmWorks support login access to your organization
 
 ## Disclaimers

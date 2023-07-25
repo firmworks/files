@@ -1,3 +1,7 @@
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
+
 # Tips And Known Issues
 
 ## Known Issues

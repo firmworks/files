@@ -1,5 +1,6 @@
-![](./quickStartImages/fileviewer.png)
-[Documentation](index.md)
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
 

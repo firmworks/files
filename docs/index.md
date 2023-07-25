@@ -1,4 +1,6 @@
-# Firmworks FileViewer
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+# FirmWorks Files
 
 FirmWorks Files is a native salesforce application designed to make the storing, retrieving and editing of Content faster and easier.
 
