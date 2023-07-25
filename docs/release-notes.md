@@ -3,6 +3,10 @@
 
 # FirmWorks Files Release Notes
 
+## 0.34
+
+- FileViewer rebranded to FirmWorks Files
+
 ## 0.33
 
 ### Fixes
