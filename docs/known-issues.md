@@ -10,7 +10,7 @@
 
 Filtered Lookups are not currently supported in the following FirmWorks Files components/views:
 
-- FirmWorks Files - Tile View
+- FirmWorks Files FileViewer - Tile View
 - File Tagger Button for Upload
 
 This is due to an issue with how Salesforce allows us to access filtered lookup criteria via apex
@@ -19,7 +19,7 @@ This is due to an issue with how Salesforce allows us to access filtered lookup 
 
 ### Permission Set to Query All Files
 
-If you are in a FileViewer component and think you may not be seeing all Files in your search criteria, that could be the case! You mmy need to give you or a sub set of your users a specific permission.
+If you are in a FirmWorks Files component and think you may not be seeing all Files in your search criteria, that could be the case! You mmy need to give you or a sub set of your users a specific permission.
 
 NOTE: This permission can assigned to Users with View All Data permission and it will allow the user the ability to query ContentDocument and ContentVersion and retrieve all files in the org. Please be careful who you give this permission to
 
@@ -51,7 +51,7 @@ Luckily Salesforce provides a way to regenerate images.
 If using Google's Chrome browser window and you have permissions (check with your internal security officer first) you can use an extension such as:
 
 <span style="font-size:larger;color:darkred; background-color:lightyellow">
-***IMPORTANT! Firmworks does not support or endorse any browser extensions. The following extension does not publish security or privacy information and there for by installing it you are using it at your own risk!***</span>
+***IMPORTANT! FirmWorks does not support or endorse any browser extensions. The following extension does not publish security or privacy information and there for by installing it you are using it at your own risk!***</span>
 
 - [PDF-Viewer](https://chrome.google.com/webstore/detail/pdf-viewer/oemmndcbldboiebfnladdacbdfmadadm/related?hl=en-US) to open pdf's in screen with FileViewer's Alternate Viewer button.
 
