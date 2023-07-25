@@ -1,7 +1,7 @@
 ![](./quickStartImages/fileviewer.png)
 [Documentation](index.md)
 
-# FileViewer Release Notes
+# FirmWorks Files Release Notes
 
 ## 0.33
 
@@ -45,7 +45,7 @@
 
 ### Fixes
 
-- Fixed issue with Lookup component used for lookup fields (visible from FileViewer List View and Taxonomy screen)
+- Fixed issue with Lookup component used for lookup fields (visible from FirmWorks Files List View and Taxonomy screen)
 - Added known issue where Salesforce throws an exception using undocumented SOQL feature to support Filtered lookups.
 
 ## 0.28
@@ -54,7 +54,7 @@
 - Reporting Enhancements
     - Allow for more complex reporting scenarios with AND/OR in the UI
     - See your SOQL syntax on screen to aid in report development.
-    - Multiple document reporting with filter sets. For instance if 3 documents each with their own criteria are required, FileViewer reporting now supports these complicated criteria.
+    - Multiple document reporting with filter sets. For instance if 3 documents each with their own criteria are required, FirmWorks Files reporting now supports these complicated criteria.
 - Flow component for File Tagging
     - Ensure documents come in with the correct tagging from screen flows
 - Flow component for File report validation. Visually aid users in a screen flow what documents are required to continue. Works with file reports to even block the continuation of a screen flow until documents are added to satisfy the constraints.

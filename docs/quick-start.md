@@ -3,15 +3,15 @@
 
 # Quick Start Guide
 
-## How to Grant User Access and FileViewer Licenses
+## How to Grant User Access and FirmWorks Files Licenses
 
-The first step a Salesforce user will need to access FileViewer is the
-FileViewer Permission Set.
+The first step a Salesforce user will need to access FirmWorks Files is the
+FirmWorks Files Permission Set.
 
 To assign to multiple users at one time:
 
 **Setup -\> Users -\> Permission Sets -\>
-FileViewer -\> Manage Assignments (button) -\> Add Assignments -\> Check
+FirmWorks Files -\> Manage Assignments (button) -\> Add Assignments -\> Check
 the desired users (small checkboxes next to Edit) - \>Assign**
 
 ![](./quickStartImages/image3.png)
@@ -20,15 +20,15 @@ To assign from a single User record:
 
 **Setup -\> Users -\> Users -\> Click on the desired user -\> Permission
 Set Assignments (Related List) -\> Edit Assignments (button) -\> Move
-the FileViewer Permission Set to the Right.**
+the FirmWorks Files Permission Set to the Right.**
 
-The second step to provide users with access to the FileViewer
+The second step to provide users with access to the FirmWorks Files
 Application will be to allocate a license to them.
 
-**Setup -\> Installed Packages -\> FileViewer -\> Manage Licenses -\> Add
+**Setup -\> Installed Packages -\> FirmWorks Files -\> Manage Licenses -\> Add
 the desired users**
 
-## FileViewer Configuration
+## FirmWorks Files Configuration
 
 ### Create a 'Tag & Upload' Global Action
 
@@ -44,9 +44,9 @@ This Global Action will now be available to add onto any Standard or
 Custom Object Lightning Record Pages that will provide users with the
 ability to upload documents and 'tag' them all at once.
 
-### Adding FileViewer Components to Lightning Record Pages
+### Adding FirmWorks Files Components to Lightning Record Pages
 
-The FileViewer's Managed Package provides three plug-and-play Lightning
+The FirmWorks Files's Managed Package provides three plug-and-play Lightning
 Components; FileViewer, File Tagger, and File Tag Launcher. These can
 all be found below the Standard Components on the Lightning Record Page
 Editor.
@@ -69,11 +69,11 @@ To add any of these components, drag and drop the desired component into
 the target region of the Lightning Record Page and Save.
 
 Repeat these steps for all Lightning Record Pages per Object where
-FileViewer will be used.
+FirmWorks Files will be used.
 
-### Choosing Your FileViewer Upload Experience
+### Choosing Your FirmWorks Files Upload Experience
 
-The FileViewer's Managed Package provides two plug-and-play Lightning
+The FirmWorks File's Managed Package provides two plug-and-play Lightning
 Components to provide a user-friendly way to Tag & Upload Files directly
 on any Standard or Custom Object Lightning Record Page.
 
@@ -90,19 +90,19 @@ accomplish a single task, **File Tagger** provides a landscape-like
 interface that will display the same Tag & Upload options as File Tag
 Launcher, but directly on the Lightning Record Page.
 
-All FileViewer Lighting Components can also be
+All FirmWorks Files Lighting Components can also be
 controlled via standard Salesforce Component visibility.
 
 ![](./quickStartImages/image7.png)
 
-## Creating and Customizing FileViewer File Tags
+## Creating and Customizing FirmWorks Files File Tags
 
-In the context of FileViewer, a 'tag' is the categorization of a file
+In the context of FirmWorks Files, a 'tag' is the categorization of a file
 using a custom field on the Content Version Object.
 
 Navigate to the Content Version Object within the Object Manager to
 create custom fields. Once a custom field on the Content Version Object
-is saved, it will automatically appear in the FileViewer's Lightning
+is saved, it will automatically appear in the FirmWorks Files's Lightning
 Components for immediate use.
 
 **Setup -\> Object Manager -\> Content Version -\> Fields & Relationships
@@ -118,20 +118,20 @@ tags:
 - Text Area (Rich)
 - Text (Encrypted)
 
-## FileViewer Attributes Per Lightning Record Page
+## FirmWorks Files Attributes Per Lightning Record Page
 
-By default, the FileViewer Lightning Components will display **all**
-custom fields from the Content Version Object anywhere the FileViewer
+By default, the FirmWorks Files Lightning Components will display **all**
+custom fields from the Content Version Object anywhere the FirmWorks Files
 Components are in use.
 
-If you are using FileViewer to tag and organize a wide variety of
+If you are using FirmWorks Files to tag and organize a wide variety of
 documents, you may have tags that are applicable to Files attached to
 Accounts and **different** tags that are applicable to Files attached to
 Opportunities.
 
-User-Friendly configurations within the FileViewer Lightning Components
+User-Friendly configurations within the FirmWorks Files Lightning Components
 allow for you to easily control which custom fields are available within
-the FileViewer Components based on the Lightning Record Page
+the FirmWorks Files Components based on the Lightning Record Page
 Assignments.
 
 ### Control Custom Fields by Object/Lightning Record Page
@@ -150,7 +150,7 @@ into the *Configuration: Content Version Fields* field.
 >Alternatively, Custom_Field_3__c should be entered into the same configuration on the Account Lightning Record Page.
 
 
-### Control FileViewer Filter and Search Fields
+### Control FirmWorks Files Filter and Search Fields
 
 To control visibility of the custom
 Content Version fields available to Filter and Search by on different
@@ -160,13 +160,13 @@ field.
 
 ![](./quickStartImages/image9.png)
 
-### Control FileViewer List Columns
+### Control FirmWorks Files List Columns
 
-FileViewer provides users the ability to view File Search results by
+FirmWorks Files provides users the ability to view File Search results by
 List, similar to Salesforce's List Views.
 
 The List will always have the Files' Title
-as the first column, but configuration within the FileViewer Lightning
+as the first column, but configuration within the FirmWorks Files Lightning
 Component provides control of which fields to include and their order.
 Enter a comma delimited list of the desired field's API names in desired
 order
@@ -174,7 +174,7 @@ order
 
 ![](./quickStartImages/image10.png)
 
-[FileViewer FAQ](https://getfirmworks.com/#faq)
+[FirmWorks Files FAQ](https://getfirmworks.com/#faq)
 
 ![](./quickStartImages/image1.jpeg)
 
