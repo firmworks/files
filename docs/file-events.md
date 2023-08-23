@@ -91,7 +91,7 @@ Action - This field will tell you what context the platform event was created in
 
 - afterInsert
 - afterUpdate
-- afterDelete *Salesforce doesn't fire this event in all circumstances - for instance if a file is deleted their is no cascade delete events for all of it's content document links.
+- afterDelete *Salesforce doesn't fire this event in all circumstances - for instance if a file is deleted there is no cascade delete events for all of its content document links.
 
 - afterUndelete *Not Available
 
