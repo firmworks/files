@@ -80,7 +80,7 @@ Action - This field will tell you what context the platform event was created in
 
 - afterInsert
 - afterUpdate
-- afterDelete
+- afterDelete *As of 2023-09-01 Salesforce doesn't provide a mechanism for Flows to add the 'All Rows' modifier to query for deleted records. See [invocableMethod](#querying-for-deleted-content-document-links)
 - afterUndelete
 
 Content Document Id - This is the Content Document Id that created the Platform Event.
@@ -124,3 +124,22 @@ Content Version Id - This is the Id of the Content Version. The Content Version 
 
 
 ![File Events  Flows 1](images/fileevents-considerations1.png)
+
+## Invocable Methods
+
+### Querying For Deleted Content Document Links
+
+>Available in File Events version 1.0.2+
+
+Salesforce does not provide a mechanism in Flows to query for deleted records. Primarily an issue when utilizing the ContentDocument afterDelete event. The event will return the Content Document Id of the deleted ContentDocument. However it is not possible to get the affected ContentDocumentLink junction object records to determine which related (linked) entity ids to take action with.
+
+APEX Invocable action
+"Fetch Related Records For A Deleted Content Document"
+
+The invocable action takes in a ContentDocumentId as a parameter and returns a list of Ids from the LinkedEntityId field on the deleted records. This is useful to update the related records in case the document was fulfilling a requirement as part of a workflow.
+
+The invocable action is unable to be fully 'bulkified' and incurs 1 SOQL call per execution as Salesforce has the following 2 limitations on the ability to query for deleted ContentDocumentLink records.
+- System.QueryException: Implementation restriction: ContentDocumentLink requires a filter by a single Id on ContentDocumentId or LinkedEntityId using the equals operator or multiple Id's using the IN operator.
+- Implementation restriction: filtering on non-id fields is only permitted when filtering by ContentDocumentLink.LinkedEntityId using the equals operator.
+
+
