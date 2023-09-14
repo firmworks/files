@@ -4,6 +4,18 @@
 
 # FirmWorks Files Release Notes
 
+## 0.37
+
+- Defensive client side checks for firing mobile platform events
+
+## 0.36
+
+- Security house keeping - deprecate use of WITH SecurityEnforced for UserMode
+
+## 0.35
+
+- Allow null/blank values to set on Taxonomy Upload
+
 ## 0.34
 
 - FileViewer rebranded to FirmWorks Files
