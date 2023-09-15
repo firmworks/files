@@ -3,6 +3,9 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.38
+
+- Added custom metadata types to permission sets
 
 ## 0.37
 
