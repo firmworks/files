@@ -6,6 +6,11 @@
 ## 0.38
 
 - Added custom metadata types to permission sets
+    - ContentRecordTypeMapping__mdt
+    - File_Viewer_Configuration__mdt
+    - Report_Configuration__mdt
+
+- FileViewer Component now supports setting file form records to 'readonly' in the configuration. (Configuration: Record Edit) Accepted values are 'view', 'edit' and 'readonly' Default value is 'view'
 
 ## 0.37
 
