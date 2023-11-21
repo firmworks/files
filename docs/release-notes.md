@@ -6,13 +6,14 @@
 
 ## 0.39
 
+### Enhancements
 - Updated All Metadata to 59.0
 - Record's Content Viewer Component
-    -   Added a new Tile View as an option
+    - Added a new Tile View as an option
     - Added ability to control width of component (1-12 for reactive design)
 - FileViewer Component
-    - Fixed issue with Sort Direction not being set
-    - Added ability to use Scalable Image in tile view
+    - Fixed issue with Sort Direction not being set when sorting on List
+    - Added ability to use Scalable Image in tile view with width/height controls
 - Flows
     - Added Invocable Method to return a File Report Result for a record - this "headless" option can now be used to control a flow based on the complex criteria of a FirmWorks File Report.
 - File Batch Upload (Available in the Upload Layouts)
@@ -22,6 +23,14 @@
         - Gives Users ability to Upload Files with Matching Titles as a new Version instead of a new file.
     - New Configuration 'Default Upload Mode' to allow Batch to be the default upload style
     - Consolidated UI to a single table
+- Viewer support for HEIC files
+    - View HEIC files directly in Safari browser on ios and macos
+    - View HEIC files with built in converter for other supported browsers
+- Updated browser viewer support for PDF
+    - Directly handles file data to get around Salesforce misreporting of mime types
+    - Helpful for when the built in image generator doesn't work as expected
+- File Reporting
+    - Include Object fields in the report results
 
 
 ## 0.38
