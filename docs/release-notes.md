@@ -4,6 +4,22 @@
 
 # FirmWorks Files Release Notes
 
+## 0.40
+### Enhancements
+- File Report Result
+    - Added menu action to show files in FileViewer component
+    - Added support to use component in flows
+        - Added property to pass a list of Records to evaluate "4. Data: Run for these Record Ids" This supports the ability of using a flow to run a report on related items. For example - from an account layout show all of the related contacts that are missing an NDA on their record.
+    - When including lookup fields in the report - now pulls the name field to build a hyperlink.
+- File Tagging
+    - Reworked screen initialization to only display options once the configuration has downloaded.
+- FileViewer
+    - Design Configuration added show delete option to enable Scalable image ivews
+    - Added layout customization to show images and content stacked vertically or horizontally.
+### Fixes
+- File Configuration Editor
+    - Changed navigation bar to allow for small screen wrapping
+
 ## 0.39
 
 ### Enhancements
