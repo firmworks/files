@@ -8,14 +8,17 @@
 ### Enhancements
 - File Report Result
     - Added menu action to show files in FileViewer component
+    <img src="images/releasenotes/v40/filereport_showinfileviewer.gif" height="120">
     - Added support to use component in flows
         - Added property to pass a list of Records to evaluate "4. Data: Run for these Record Ids" This supports the ability of using a flow to run a report on related items. For example - from an account layout show all of the related contacts that are missing an NDA on their record.
+           <img src="images/releasenotes/v40/filereport_flowsupport.png" height="120">
     - When including lookup fields in the report - now pulls the name field to build a hyperlink.
 - File Tagging
     - Reworked screen initialization to only display options once the configuration has downloaded.
 - FileViewer
     - Design Configuration added show delete option to enable Scalable image ivews
     - Added layout customization to show images and content stacked vertically or horizontally.
+     <img src="images/releasenotes/v40/fileviewer_horizontal_layout.png" height="120">
 ### Fixes
 - File Configuration Editor
     - Changed navigation bar to allow for small screen wrapping
