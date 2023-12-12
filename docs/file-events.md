@@ -143,7 +143,7 @@ The invocable action is unable to be fully 'bulkified' and incurs 1 SOQL call pe
 - Implementation restriction: filtering on non-id fields is only permitted when filtering by ContentDocumentLink.LinkedEntityId using the equals operator.
 
 
-## Content Download Events v0.6
+## Content Download Events - Available upon request as an unmanaged package due to Salesforce handling of namespaces
 
 Content Download Events fire whenever a document's contents are queried out of Salesforce.
 With this Event type an organization can use a flow to subscribe to the events and provide notifications, usage, and other metrics to a custom object.
