@@ -3,6 +3,60 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
+## 0.40
+### Enhancements
+- File Report Result
+    - Added menu action to show files in FileViewer component
+
+        <img src="images/releasenotes/v40/filereport_showinfileviewer.gif" height="120">
+
+    - Added support to use component in flows
+        - Added property to pass a list of Records to evaluate "4. Data: Run for these Record Ids" This supports the ability of using a flow to run a report on related items. For example - from an account layout show all of the related contacts that are missing an NDA on their record.
+
+           <img src="images/releasenotes/v40/filereport_flowsupport.png" height="120">
+
+    - When including lookup fields in the report - now pulls the name field to build a hyperlink.
+- File Tagging
+    - Reworked screen initialization to only display options once the configuration has downloaded.
+- FileViewer
+    - Design Configuration added show delete option to enable Scalable image ivews
+    - Added layout customization to show images and content stacked vertically or horizontally.
+
+        <img src="images/releasenotes/v40/fileviewer_horizontal_layout.png" height="120">
+### Fixes
+- File Configuration Editor
+    - Changed navigation bar to allow for small screen wrapping
+
+## 0.39
+
+### Enhancements
+- Updated All Metadata to 59.0
+- Record's Content Viewer Component
+    - Added a new Tile View as an option
+    - Added ability to control width of component (1-12 for reactive design)
+- FileViewer Component
+    - Fixed issue with Sort Direction not being set when sorting on List
+    - Added ability to use Scalable Image in tile view with width/height controls
+- Flows
+    - Added Invocable Method to return a File Report Result for a record - this "headless" option can now be used to control a flow based on the complex criteria of a FirmWorks File Report.
+- File Batch Upload (Available in the Upload Layouts)
+    - Detect Duplicate Records on Upload
+        - Allows Users to Remove Duplicates Based on Title and Size
+        - Allows Users to Only Remove Duplicates that Match Title and Size
+        - Gives Users ability to Upload Files with Matching Titles as a new Version instead of a new file.
+    - New Configuration 'Default Upload Mode' to allow Batch to be the default upload style
+    - Consolidated UI to a single table
+- Viewer support for HEIC files
+    - View HEIC files directly in Safari browser on ios and macos
+    - View HEIC files with built in converter for other supported browsers
+- Updated browser viewer support for PDF
+    - Directly handles file data to get around Salesforce misreporting of mime types
+    - Helpful for when the built in image generator doesn't work as expected
+- File Reporting
+    - Include Object fields in the report results
+
+
 ## 0.38
 
 - Added custom metadata types to permission sets
