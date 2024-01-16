@@ -3,7 +3,24 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.44
+- License check performed on all objects/fields from other managed packages.
+    - Behavior appears if a managed package includes a managed Content Version field Salesforce schema checks were erroneously showing fields that a user isn't license for causing issues when querying information.
 
+## 0.43
+- FileViewer
+    - added option to show/hide titles on tile view
+    - titles now concatenate the title field with the fileExtension field.
+    - Option provided to hide titles for views (recommmend using the "Record's Content Viewer" component for images only)
+    -
+- Fixed issue where the user's value for a field was not being respected when a default value for a field was set in addition to showing the field in the user interface via the filter fields.
+- Changed default behavior of the file upload components - where the file extentions list is no longer populated. This is inline with Salesforce default behavior. The File Extensions now also support the values of 'any' or 'all' in order to provide support for components that are already on layouts and have the default values set. (Salesforce doesn't allow fully clearing designer values)
+-
+## 0.42
+- Fixed Visual issue with record editor picklists on FileViewer component
+
+## 0.41
+  - compatibility for old version of Files
 ## 0.40
 ### Enhancements
 - File Report Result
