@@ -3,6 +3,13 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.46
+- FileViewer, Record Viewers
+    - Enhancement - View related record's files all from one record page. This ability gives admins/configurators the ability to show the relationship's files from a single record page. For instance, from the Account page layout, view the related Contact's, Opportunities, Case, or any custom object's files in addition to the Account's. This ability can be added to any configuration and supports custom private object relationships to support more strict private access schemas. Contact FirmWorks for any questions
+
+## 0.45
+ - minor enhancement in sorting entity sharing results in the drop down.
+
 ## 0.44
 - License check performed on all objects/fields from other managed packages.
     - Behavior appears if a managed package includes a managed Content Version field Salesforce schema checks were erroneously showing fields that a user isn't license for causing issues when querying information.
