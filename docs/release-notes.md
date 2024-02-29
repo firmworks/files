@@ -5,7 +5,7 @@
 # FirmWorks Files Release Notes
 ## 0.48
 - Searching records issue resolved
-   - An exception is thrown when searching for records in Sharing and Configuration was surfaced when Salesforce's Schema service would report that an object (namely from another managed package) is accessible but that doesn't take into account if the user is also has a license.
+   - An exception is thrown when searching for records in Sharing and Configuration was surfaced when Salesforce's Schema service would report that an object (namely from another managed package) is accessible but that doesn't take into account if the user has a license to permit searching functionality.
 
 ## 0.46
 - FileViewer, Record Viewers
