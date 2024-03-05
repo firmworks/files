@@ -3,6 +3,12 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.49
+- File Searching Issue
+    - Addressed issue where Text Area fields were ignored in search parameters.
+- File upload issue
+    - Addressed issue where if the post action is 'Show Results' the updating message would sometimes not stop showing - falsly indicating that the process was incomplete (when it had in fact completed)
+    - Addressed issue where if the post action is 'Show Results' that the embedded file viewer component would show files outside of the current upload sessions context.
 ## 0.48
 - Searching records issue resolved
    - An exception is thrown when searching for records in Sharing and Configuration was surfaced when Salesforce's Schema service would report that an object (namely from another managed package) is accessible but that doesn't take into account if the user has a license to permit searching functionality.
