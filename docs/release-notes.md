@@ -3,16 +3,21 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
 ## 0.49
 - File Searching Issue
     - Addressed issue where Text Area fields were ignored in search parameters.
 - File upload issue
     - Addressed issue where if the post action is 'Show Results' the updating message would sometimes not stop showing - falsly indicating that the process was incomplete (when it had in fact completed)
     - Addressed issue where if the post action is 'Show Results' that the embedded file viewer component would show files outside of the current upload sessions context.
+ 
 ## 0.48
 - Searching records issue resolved
    - An exception is thrown when searching for records in Sharing and Configuration was surfaced when Salesforce's Schema service would report that an object (namely from another managed package) is accessible but that doesn't take into account if the user has a license to permit searching functionality.
-
+     
+## 0.47
+- No Change
+  
 ## 0.46
 - FileViewer, Record Viewers
     - Enhancement - View related record's files all from one record page. This ability gives admins/configurators the ability to show the relationship's files from a single record page. For instance, from the Account page layout, view the related Contact's, Opportunities, Case, or any custom object's files in addition to the Account's. This ability can be added to any configuration and supports custom private object relationships to support more strict private access schemas. Contact FirmWorks for any questions
