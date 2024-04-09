@@ -1,7 +1,8 @@
 # FirmWorks Files
 
-Visit [https://firmworks.github.io/files/](https://firmworks.github.io/files/)
+[FirmWorks Files Product Page](getfirmworks.com/firmworks-files/)
 
-[Salesforce AppExchange Listing](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3u00000PGu9TEAT)
+[FirmWorks Files Documentation](https://firmworks.github.io/files/)
 
-[FirmWorks Files](getfirmworks.com/firmworks-files/)
+[FirmWorks Files Salesforce AppExchange Listing](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3u00000PGu9TEAT)
+
