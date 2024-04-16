@@ -3,12 +3,17 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
 ## 0.51
+
 - French language support for main components
 
 ## 0.50
+
 - Fix for invocable method failing without named configuration
+
 ## 0.49
+
 - File Searching Issue
     - Addressed issue where Text Area fields were ignored in search parameters.
 - File upload issue
