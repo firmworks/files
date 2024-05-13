@@ -1,6 +1,6 @@
 # FirmWorks Files
 
-[FirmWorks Files Product Page](getfirmworks.com/firmworks-files/)
+[FirmWorks Files Product Page](https://getfirmworks.com/firmworks-files/)
 
 [FirmWorks Files Documentation](https://firmworks.github.io/files/)
 
