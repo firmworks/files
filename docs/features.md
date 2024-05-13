@@ -86,7 +86,7 @@ Quickly and easily work with your existing files and documents to give them the 
 
 Guide users and customer through a flow to upload files as part of a process and use reporting to validated the files exist before moving on to future steps
 
-![FirmWorks Files in a Flow](/docs/images/features/fileviewer-in-a-flow.gif)
+![FirmWorks Files in a Flow](images/features/fileviewer-in-a-flow.gif)
 
 ## Tabbed Viewer
 
