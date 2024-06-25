@@ -4,6 +4,16 @@
 
 # FirmWorks Files Release Notes
 
+## 0.54
+
+- Salesforce Content Notes Integration
+    - Search, share, convert to pdf - unlock the power of notes on any record and in the FirmWorks Notes Manager
+
+## 0.52/0.53
+
+- File Events Integration
+    - Control your businsess processes with File Event Flow Support. Create flows using our flow templates to start automating processes around uploading, editing, deleting, changing content document links and more. Unleash the power of flows to have files finish out your business processes.
+
 ## 0.51
 
 - French language support for main components
