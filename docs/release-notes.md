@@ -6,8 +6,19 @@
 
 ## 0.54
 
+### Features
+
 - Salesforce Content Notes Integration
-    - Search, share, convert to pdf - unlock the power of notes on any record and in the FirmWorks Notes Manager
+  - Manage Salesforce Enhanced Content (Notes, Enhanced Notes)
+  - Search for and tag notes with your own custom picklist fields
+  - Convert Notes to PDF to share externally
+  - Add Notes component to any record layout to help users access, ammend, and keep notes current for the record.
+  - Notes are automatically versioned - see what changed between versions and even roll back by promoting an older version.
+
+### Enhancements
+
+- When entering a user record to share files/notes with the user interface will display an option to change ownership.
+- FileViewer - exclude specific file types when searching (This feature defaults to excluding SNOTE)
 
 ## 0.52/0.53
 
