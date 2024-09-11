@@ -10,13 +10,13 @@ Firmworks Files gives users the ability to upload thousands at a time.
 ![bulk upload](images/lifecycle/bulkupload.gif)
 
 #### Batch upload new versions and ignore duplicates
-![bulk upload duplicate detection](images/lifecycle/bulk%20duplicate%20detection.png)
+![bulk upload duplicate detection](images/lifecycle/bulk-duplicate-detection.png)
 
 #### Tag files with their correct taxonomies during upload
-![taxonomy support](images/lifecycle/taxonomy%20support.gif)
+![taxonomy support](images/lifecycle/taxonomy-support.gif)
 
 #### Curate experiences to minimize users uploading the wrong documents
-![curate buttons](images/lifecycle/curatebuttons.png)
+![curate buttons](images/lifecycle/curate-buttons.png)
 
 ### Tagging
 
