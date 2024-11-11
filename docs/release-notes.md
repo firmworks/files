@@ -4,6 +4,15 @@
 
 # FirmWorks Files Release Notes
 
+## 0.57
+
+### Enhancements/fixes
+
+- Permission sets updated to include BulkFileUploadController which is required for the Download button
+- File upload visual bug where the word 'Step' + number had no space
+- Radio button list visual bug where Salesforce CSS selection appears outside of dom element - appearing clipped
+- Fixed issue with bulk upload not indicating matching criteria
+  
 ## 0.54
 
 ### Features
