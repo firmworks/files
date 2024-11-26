@@ -1,5 +1,7 @@
 # The files life
 
+FirmWorks files provides a myriad of components to assist in working with Salesforce files. The story begins with ingestion of the file via uploading to Salesforce.
+
 ### Uploading
 
 #### Batch upload up to thousands of files at once
@@ -22,7 +24,7 @@ Firmworks Files gives users the ability to upload thousands at a time.
 
 #### Tag files easily and quickly that are already in the system
 
-Grid View
+![gridview](images/lifecycle/gridview.gif)
 
 #### Create processes and workflows to audit files for accuracy
 
@@ -32,29 +34,34 @@ Support files in flows and automation
 
 #### Search for files by their content
 
-Search files with words in document
+![Search contents](images/lifecycle/search-in-files.gif)
 
 #### Search for files tagged
 
+![Quick Search](images/lifecycle/quick-click-search.gif)
 
 ### Viewing
 
 #### View videos, photos, pdfs, word docs, heic files and more
 
-#### Curate tabs on layouts to help your teams instantly find files without opening them all
-
-#### Caurosel and tabbed viewers
+#### Curate tabs on layouts to help your teams instantly find files without opening them all - Caurosel and tabbed viewers
+![File Views](images/lifecycle/view-files.gif)
 
 ### Sharing
 
 #### Share links to files easily with users outside of Salesforce, complete with expirations and passwords
 
-#### Easily share files to multiple records of different types
+![Public Links](images/lifecycle/public-share.gif)
+
+#### 1 click make files viewable to related records
+
+![1 click related sharing](images/lifecycle/1click-related-sharing.gif)
 
 #### Download all of the files in any view in a single zip file
 
+![Download Files](images/lifecycle/download-any-list.gif)
 
-### Auditing & Compliance
+### Automate Auditing & Compliance
 
 #### Discover Salesforce records that DONT have a file of a specific taxonomy
 
@@ -62,7 +69,7 @@ Search files with words in document
 
 #### Schedule reports that generate platform events to drive business processes and get your users to perform the activites required.
 
-#### Find files that don't belong to be culled for clean up
+#### Find files to be culled for clean up
 
 #### Automate deleting or migrating files off platform with scheduled reports
 
