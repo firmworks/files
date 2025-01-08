@@ -4,6 +4,12 @@
 
 # FirmWorks Files Release Notes
 
+## 0.58
+
+### Features
+
+- FirmWork files report integration. Run reports directly from the FileViewer component - and then filter the results further. This functionality enables users to engage with many more files.
+  
 ## 0.57
 
 ### Enhancements/fixes
