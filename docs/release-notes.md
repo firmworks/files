@@ -3,6 +3,16 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.60
+
+### Features
+
+- Firmworks files now supports Spanish and Spanish (Mexico) in user facing components.
+
+### Enhancements/fixes
+
+- Corrected FileViewer Component's label not resolving from designer
+- When downloading more using FileViewer or Download Button Component) a modal screen now displays giving users the ability to retry a download if the browser or another security mechanism blocks the request.
 
 ## 0.58
 
