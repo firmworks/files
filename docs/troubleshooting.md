@@ -30,8 +30,10 @@ Add a trusted domain to your org's own lightning domain. This will allow compone
 ![Add Trusted Domain](images/troubleshooting/bulkupload/clickjackprotection_adddomain.png)
 
 Add your own lightning domain as a trusted domain to serve up your visualforce domain. Run this command from Salesforce's Execute anonymous window to get the correct value: 
-
+system.debug('https://' + DomainCreator.getLightningHostname());
 system.debug('https://' + DomainCreator.getVisualforceHostname('firmworks'));
+
+https://\<YOUR DOMAIN\>.lightning.force.com
 
 ![Add Trusted Domain](images/troubleshooting/bulkupload/clickjackprotection_adddomain_record.png)
 
