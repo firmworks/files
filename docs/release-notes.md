@@ -3,6 +3,16 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
+## 0.64
+
+### Enhancements/fixes
+
+- UI skin update to upload screens - Colors pull from org theme
+- File Configurations now support UI settings to deliver more curated experiences
+- Component List Component Ported to LWC framework and has a new configuration screen for screen flows
+
+
 ## 0.63
 
 ### Features
@@ -12,14 +22,14 @@
 ### Enhancements/fixes
 
 - Corrected FileViewer Component's label not resolving from designer
-- When downloading more using FileViewer or Download Button Component) a modal screen now displays giving users the ability to retry a download if the browser or another security mechanism blocks the request.
+- When downloading files using FileViewer or Download Button Component a modal screen now displays with the resulting url links to give users the ability to retry a download if the browser or another security mechanism blocks the request.
 
 ## 0.58
 
 ### Features
 
 - FirmWork files report integration. Run reports directly from the FileViewer component - and then filter the results further. This functionality enables users to engage with many more files.
-  
+
 ## 0.57
 
 ### Enhancements/fixes
@@ -28,7 +38,7 @@
 - File upload visual bug where the word 'Step' + number had no space
 - Radio button list visual bug where Salesforce CSS selection appears outside of dom element - appearing clipped
 - Fixed issue with bulk upload not indicating matching criteria
-  
+
 ## 0.54
 
 ### Features
