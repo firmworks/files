@@ -3,7 +3,14 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+## 0.66
 
+- Fix issue with default configuration on upload components errantly setting blank field lists. Default behaviour of showing all ContentVersion fields restored.
+
+## 0.65
+
+- Fix issue with Upload flow component not displaying result tiles after upload completed.
+  
 ## 0.64
 
 ### Enhancements/fixes
