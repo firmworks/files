@@ -5,7 +5,7 @@
 # FirmWorks Files Release Notes
 ## 0.66
 
-- Fix issue with default configuration on upload components errantly setting blank field lists. Default behaviour of showing all ContentVersion fields restored.
+- Fix issue with default configuration on upload components errantly setting blank field lists. Default behavior of showing all ContentVersion fields restored.
 
 ## 0.65
 
