@@ -3,7 +3,13 @@
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
-ç
+
+## 0.67
+
+### Enhancements
+
+- File Uploads fields can now be set to be required within the File Configuration Manager. This ability gives your orginization the flexibility to require fields per workflow/business unit/department and more. Combined with Salesforce flows - an implementor can set different configurations to the component giving complete flexibilty of tagging files.
+- When a date or date/time field is positioned first in the filter field configuration for FileViewer component - the date filters will appear before other fields, instead of after.
   
 ## 0.66
 
