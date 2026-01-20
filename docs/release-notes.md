@@ -4,6 +4,74 @@
 
 # FirmWorks Files Release Notes
 
+## 0.72
+
+### Enhancements
+
+Reports can now include the file's fields in the displayed output. The additional fields can be included in the CSV download in addition to viewing them as the "Details" button. Switch to "Grouped" when wanting to see the results at the main report's object level.
+
+## 0.71
+
+### Enhancements
+
+Multiple controls in the same layout are reactive to updates, inserts and deletes from other FirmWorks controls. This update allows users to not have to refresh the page in most circumstances. This is particularly useful when using file reports for records to update screen flows and assist in a more cohesive user experience. #lessclicksmoreeverythingelse
+
+## 0.70
+
+### Features
+
+Show Download Option for image menus. Via Configuration, the option to allow downloads as a menu option is available to mirror feature parity with native experience.
+ 
+### Enhancements
+
+Previously if the theme/branding color was white, the default SLDS variants displayed white on white causing the buttons to look visually unrendered. 
+ 
+Phone/Small layout for FileViewer List View  proved to be a subpar experience. A new layout renders for list view now where the preview displays above the list and the list is scrollable, allowing access to the controls.
+ 
+### Fixes
+
+Fixed an issue where validations/trigger errors on updating ContentVersions in FileViewer List view errantly didn't clear the opaque overlay requiring a screen refresh.
+      
+Fixed an issue experienced by some experiences where the redirects were inconsistently being handled correctly. This caused issues where download, previewing and navigation in experiences weren't working correctly.
+
+## 0.69
+ 
+Corrections for digital experience navigations (fixes for both absolute and relative navigations) for download, preview with browser (requires API access) and navigate to document.
+
+## 0.68
+
+v0.68
+
+### Enhancements
+
+Enhanced Custom Lookup Field support.
+
+- Additional support for Salesforce Filters on Lookup Fields 
+- New Sub Query option for filter fields - Apply additional SOQL queries to Lookup fields added as Filter Fields via Configuration Management.
+ 
+Color Styling for major headers
+
+Components Headers use the following Style Hooks and values in order to support SLDS2 Themes and support for Digital Experience Theme values
+-  --lwc-prmHeaderBackgroundColor
+-  --lwc-brandNavigationBarBackgroundColor
+-  --slds-g-color-accent-container-3
+-  --lwc-brandDark
+-  DarkBlue
+  
+Search Panel options in config
+- Added Search Panel visibility configuration to configuration management
+
+### Fixes
+
+Required Checkbox bug
+
+- Fixed an issue where all Checkboxes were required when uploading files by default after the new Required Field update
+
+Component override for delete option on FW images
+
+- Fixed an issue where the component setting to show the delete option on the image menu was being overridden by configuration.
+
+
 ## 0.67
 
 ### Enhancements
