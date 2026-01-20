@@ -8,7 +8,7 @@
 
 ### Enhancements
 
-Reports can now include the file's fields in the displayed output. The additional fields can be included in the CSV download in addition to viewing them as the "Details" button. Switch to "Grouped" when wanting to see the results at the main report's object level.
+Reports can now include the file's fields in the displayed output. The additional fields can be included in the CSV download in addition to viewing them with the "Details" button. Switch to "Grouped" when wanting to see the results at the main report's object level. The report component has the ability to be defaulted to the detail view.
 
 ## 0.71
 
