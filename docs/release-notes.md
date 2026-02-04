@@ -4,6 +4,18 @@
 
 # FirmWorks Files Release Notes
 
+## 0.73
+
+### Fixes
+
+Fixed an issue from the File Reporting Result control when clicking to download files. When many files(800+) are downloaded it resulted in a 414 protocol (URI to long error). Downloads from the Reporting Results now follows the rest of the download components. Each download is broken up by 800 ids and then opened in new tabs. A modal dialog with each link is provided in case of pop-up blockers, or other network issues.
+
+The text on large file downloads has been modified from "Click Links Below" to "Multiple Zip files have been requested for download. The links below provide manual access to request the files again if required." - This text is also translated into spanish and french.
+
+### Enhancements
+
+File configurations now supports in the Searching Related -> 'Exclude Root Id From Results'. This feature allows administrators and curators to hide the results for the current record id. The supporting use cases can include - wanting the control to only display child record's files - but not at the parent level. For instance - Putting a FileViewer component on an Account where custom visibility rules only show the control for a persona that doesn't need to see the files at the Account level - but only shows the child case files. This feature does not bypass Salesforce security and only removes the current record from the queries.
+
 ## 0.72
 
 ### Enhancements
