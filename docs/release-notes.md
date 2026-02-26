@@ -4,6 +4,21 @@
 
 # FirmWorks Files Release Notes
 
+## 0.74
+
+### Enhancements
+
+FileViewer Mobile view - When displaying File Viewer on Salesforce Mobile - the form factor has been laid out with accordion sections and top level buttons in an attempt to make the experience more manageable.
+
+The component File Upload & Tagger For Flows now has an input attribute named "3. Configuration: Dynamic Field Values" where a flow designer can construct a String of JSON to pass ContentVersion Field names and their values to have the uploader use them on initilization. [Dynamic Value Documentation](flow-dynamic-values.md)
+
+### Fixes
+
+File Reporting - Attempting to report on objects with record types would erroneously show an error that the field didn't belong to the object.
+
+Long text area fields were erroneously filtered out of configurations - they will now show up when included in a configuration.
+
+
 ## 0.73
 
 ### Fixes
@@ -33,21 +48,21 @@ Multiple controls in the same layout are reactive to updates, inserts and delete
 ### Features
 
 Show Download Option for image menus. Via Configuration, the option to allow downloads as a menu option is available to mirror feature parity with native experience.
- 
+
 ### Enhancements
 
-Previously if the theme/branding color was white, the default SLDS variants displayed white on white causing the buttons to look visually unrendered. 
- 
+Previously if the theme/branding color was white, the default SLDS variants displayed white on white causing the buttons to look visually unrendered.
+
 Phone/Small layout for FileViewer List View  proved to be a subpar experience. A new layout renders for list view now where the preview displays above the list and the list is scrollable, allowing access to the controls.
- 
+
 ### Fixes
 
 Fixed an issue where validations/trigger errors on updating ContentVersions in FileViewer List view errantly didn't clear the opaque overlay requiring a screen refresh.
-      
+
 Fixed an issue experienced by some experiences where the redirects were inconsistently being handled correctly. This caused issues where download, previewing and navigation in experiences weren't working correctly.
 
 ## 0.69
- 
+
 Corrections for digital experience navigations (fixes for both absolute and relative navigations) for download, preview with browser (requires API access) and navigate to document.
 
 ## 0.68
@@ -58,9 +73,9 @@ v0.68
 
 Enhanced Custom Lookup Field support.
 
-- Additional support for Salesforce Filters on Lookup Fields 
+- Additional support for Salesforce Filters on Lookup Fields
 - New Sub Query option for filter fields - Apply additional SOQL queries to Lookup fields added as Filter Fields via Configuration Management.
- 
+
 Color Styling for major headers
 
 Components Headers use the following Style Hooks and values in order to support SLDS2 Themes and support for Digital Experience Theme values
@@ -69,7 +84,7 @@ Components Headers use the following Style Hooks and values in order to support 
 -  --slds-g-color-accent-container-3
 -  --lwc-brandDark
 -  DarkBlue
-  
+
 Search Panel options in config
 - Added Search Panel visibility configuration to configuration management
 
@@ -90,7 +105,7 @@ Component override for delete option on FW images
 
 - File Uploads fields can now be set to be required within the File Configuration Manager. This ability gives your organization the flexibility to require fields per workflow/business unit/department and more. Combined with Salesforce flows - an implementor can set different configurations to the component giving complete flexibility of tagging files.
 - When a date or date/time field is positioned first in the filter field configuration for FileViewer component - the date filters will appear before other fields, instead of after.
-  
+
 ## 0.66
 
 - Fix issue with default configuration on upload components errantly setting blank field lists. Default behavior of showing all ContentVersion fields restored.
@@ -98,7 +113,7 @@ Component override for delete option on FW images
 ## 0.65
 
 - Fix issue with Upload flow component not displaying result tiles after upload completed.
-  
+
 ## 0.64
 
 ### Enhancements/fixes
