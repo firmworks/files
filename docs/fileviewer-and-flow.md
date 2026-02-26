@@ -33,6 +33,9 @@ This component functions similarly to the [File Tagger Button for Upload](/docs/
 
 Generally speaking this component can be used whenever the out of box Upload Files Component would be use to enhance the flow users experience.
 
+#### Documentation for "3. Configuration: Dynamic Field Values"
+[Dynamic Value Documentation](flow-dynamic-values.md)
+
 ### File Report Runner for Flow Records
 
 This component functions similarly to the [File Report Runner for Records](/docs/advanced-config.md#file-report-runner-for-records) with a few extra design elements.
