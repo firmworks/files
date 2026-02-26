@@ -30,7 +30,7 @@ Adding a datetime field into the formula.
 becomes
 {"Checkbox_Field__c":"true","DateTime_Field__c":"2026-06-01T12:40:00.00Z"}
 ```
-![Image of flow formula](/docs/images/flows/dynamic_values/flow_formula.png)
+![Image of flow formula](./docs/images/flows/dynamic_values/flow_formula.png)
 
 
 There are limitations of the type of JSON being represented by Salesforce flows using this method - namely it can not represent numbers and booleans as non string values.
@@ -55,18 +55,18 @@ There are limitations of the type of JSON being represented by Salesforce flows 
 
 On the component find "3. Configuration: Dynamic Field Values" from the resource list choose your JSON formatted string resource.
 
-![Image of setting component attribute](/docs/images/flows/dynamic_values/flow_component_set_attribute.png)
+![Image of setting component attribute](./docs/images/flows/dynamic_values/flow_component_set_attribute.png)
 
 ## Set the component refresh cycle
 
 If your flow allows the recalculation of values through navigation (going back/previous step). The component will not update with the new values unless it is set to "refresh inputs to incorporate changes elsewhere in the flow" from the Advanced section.
 
-![Image of advanced refresh](/docs/images/flows/dynamic_values/flow_advanced_refresh.png)
+![Image of advanced refresh](./docs/images/flows/dynamic_values/flow_advanced_refresh.png)
 
 ## Troubleshooting
 
 Error in component - Dynamic Field Error: Dynamic Field Values: Invalid Fields Detected
-![](/docs//images/flows/dynamic_values/component_error_invalid_fields.png)
+![](./docs//images/flows/dynamic_values/component_error_invalid_fields.png)
 
 A check is performed to ensure that the JSON is properly formatted and that the fields specified exist on the ContentVersion object. Salesforce security guidelines prohibit refecting user values back as an XSS vulnerablility.
 
