@@ -4,6 +4,17 @@
 
 # FirmWorks Files Release Notes
 
+## 0.75
+
+### Enhancements
+
+FileViewer component - Long text area fields can now be searched against like all other fields. Users no longer have to rely on the general search to search for files with long text area fields.
+
+FileViewer component - Curated File Reports - FirmWorks files configurations now support curating which File Reports to display in the FileViewer Report selector. Previously all reports were displayed. The option to select reports is within the configuration Filter section.
+
+File Reporting - When reporting against object is Library (ContentWorkspace) The detail view of the report will now display Content Folder Path, Content Folder Name and Content Folder Id. At the moment Salesforce does not provide a way to navigate directly to Content Folders so the 3 new fields are intended to assist Library Admins in understanding where Files are located.
+
+
 ## 0.74
 
 ### Enhancements
