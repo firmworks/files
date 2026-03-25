@@ -4,6 +4,16 @@
 
 # FirmWorks Files Release Notes
 
+## 0.76
+
+### Enhancements
+
+FileViewer Component - Newly Exposed configuration field for allowing Flows to control filter values. "5. Dynamic Configuration: Dynamic Filter Values" - Takes a JSON object of key/value pairs - Field Names and their values to filter against.
+
+FileViewer Component - Allow Users to configure which Filter Values are displayed - just like Record Field Values. A top level button appears to clear the customization of this list.
+
+FileViewer Component - When displaying the List View a new Button appears to collapse the preview pane to assist smaller form factored devices.
+
 ## 0.75
 
 ### Enhancements
