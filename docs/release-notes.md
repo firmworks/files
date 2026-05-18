@@ -4,6 +4,34 @@
 
 # FirmWorks Files Release Notes
 
+## 0.82
+
+### Features
+
+#### Conditional Display
+
+FileViewer - Conditionally Show Fields When Filtering
+
+From the Filter Fields Section - Select a Picklist or Multi-picklist filter field that will control the visiblity.
+From the Display Fields Section - Select both the filter field and any other Display fields. Configure the 'Conditionally Show Fields When Filtering'
+to only display the field when the Controlling Filter Field has the value set in the delimited section.
+
+Example:
+- A custom picklist field named 'Document_Category__c' is added to the list of filter fields. It has the 2 values 'NDA' and 'MSA'.
+- The custom display field named 'NDA_Notes__c' is added to the Available Display Fields.
+- The Display field 'NDA_Notes__c' is configured to display only when the Controlling Filter Field 'Document_Category__c' has the value of NDA set in the delimited list.
+- When the user is in the FileViewer control. They can choose the 'Document Category' value of 'NDA' to search for ContentVersions with that value.
+- The custom display field 'NDA Notes' is set to only display for the user only if the 'Document Category' field on the ContentVersion record has the value 'NDA'.
+The field will otherwise be null, uneditable, and not visible where possible.
+
+## 0.80
+
+### Features
+
+File Tagging - Conditionally show fields based off of a picklist/multipicklist value.
+
+From configuration - when selecting Filter fields to display. Configure conditional logic where a field will only display if applicable to the controlling field's values.
+
 ## 0.76
 
 ### Enhancements
