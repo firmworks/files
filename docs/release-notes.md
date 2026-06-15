@@ -4,6 +4,23 @@
 
 # FirmWorks Files Release Notes
 
+## 0.83
+
+### Enhancements
+
+FileTaxonomy [Enhanced Upload](enhanced-upload.md)
+- "Bulk/Batch" Upload now called "Enhanced" Upload
+    - The 35mb file size cap has been lifted on batch/bulk upload
+    - Salesforce Standard Upload only required if user's do not have API access.
+
+FileViewer
+- Sharing Tab - added more labels to break up the sections
+
+File Configuration
+- Added additional help context to the View Settings tab -> Image Settings Section to show where the image context menu is controlled in controls like FileViewer
+
+
+
 ## 0.82
 
 ### Features
