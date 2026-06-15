@@ -6,6 +6,7 @@ FirmWorks Files is a native salesforce application designed to make the storing,
 
 - [Quick Start Guide](quick-start.md)
 - [Features](features.md)
+- [Enhanced Upload](enhanced-upload.md)
 - [File Reporting](file-reporting.md)
 - [Advanced Config](advanced-config.md)
 - [FileViewer and Flows](fileviewer-and-flow.md)

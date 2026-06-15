@@ -68,11 +68,13 @@ After the Account 'DIA' is linked to the note, the child contact records are the
 
 ![Suggested Contacts](images/features/entity_sharing/features-related-suggested-contacts.png)
 
-## Bulk Upload
+## ~~Bulk~~Enhanced Upload
 
 Upload hundreds if not thousands of files at once
 
-![Bulk Upload](images/features/bulk_upload.gif)
+[Enhanced Upload](enhanced-upload.md)
+
+![Enhanced Upload](images/features/bulk_upload.gif)
 
 ## Tag and Update Existing Documents Quickly and Easily
 
