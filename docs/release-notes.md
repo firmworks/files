@@ -4,6 +4,21 @@
 
 # FirmWorks Files Release Notes
 
+## 0.84
+
+### Enhancements
+
+#### FileViewer
+- Configuration now supports making specific Display fields Read-Only
+
+#### FileTaxonomy
+- Enhanced Upload now supports single file uploads.
+
+#### General
+- Support for Salesforce Dark Mode beta mode
+
+
+
 ## 0.83
 
 ### Enhancements
