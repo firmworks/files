@@ -31,3 +31,8 @@ Aids in user experience so that the time to upload extremely large files is not 
 When selecting all of the files in a local directory - easily remove files that have already been previously uploaded - reducing the need to hunt and select individual files. Simply select all of the files and then remove any possible duplicates with the action menu.
 
 ![alt text](images/features/upload/action_menu_remove_files_from_upload.png)
+
+
+## Troubleshoooting "Awaiting Registration" Hanging
+
+Refer to [Troubleshooting](troubleshooting.md)

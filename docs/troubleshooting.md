@@ -6,11 +6,11 @@
 
 ## 0.24 August Release
 
-### Bulk file upload appears to hang on 'Awaiting Registration'
+### Enhanced ~~Bulk~~ file upload appears to hang on 'Awaiting Registration'
 
 Experience:
 
->When choosing bulk upload the UI appears to hang indefinitely on 'Awaiting Registration'
+>When choosing Enhanced ~~bulk~~ upload the UI appears to hang indefinitely on 'Awaiting Registration'
 >![Awaiting Registration Hangs](images/troubleshooting/bulkupload/awaitingregistration.gif)
 
 Cause:
@@ -21,7 +21,7 @@ Clickjack protection is enabled
 
 Reason:
 
-Clickjack protection prevents Visualforce pages from being iframed in other domains.
+Clickjack protection prevents Visualforce pages from being iframed in other domains (Including Salesforce's own domains).
 
 Solution:
 
@@ -29,20 +29,21 @@ Add a trusted domain to your org's own lightning domain. This will allow compone
 
 ![Add Trusted Domain](images/troubleshooting/bulkupload/clickjackprotection_adddomain.png)
 
-Add your own lightning domain as a trusted domain to serve up your visualforce domain. 
-- Run this command from Salesforce's Execute anonymous window to get the correct value: 
+Add your own lightning domain as a trusted domain to serve up your visualforce domain.
+
+- Run this command from Salesforce's Execute anonymous window to get the correct value:
     - system.debug('https://' + DomainCreator.getLightningHostname());
 
 https://\<YOUR DOMAIN\>.lightning.force.com
 - example - https://firmworks.lightning.force.com
 
-Be sure to add digital experience domains as well to allow visualforce pages within lightning domains.
+Be sure to add any digital experience lightning domains as well to allow visualforce pages to be served within lightning domains.
 
 ![Add Trusted Domain](images/troubleshooting/bulkupload/clickjackprotection_adddomain_record.png)
 
 Success:
 
-![Successful rendering of Bulk](images/troubleshooting/bulkupload/clickjackprotection_success.png)
+![Successful rendering of Enhanced ~~Bulk~~](images/troubleshooting/bulkupload/clickjackprotection_success.png)
 
 ## 0.15 - June 2022 Release
 
