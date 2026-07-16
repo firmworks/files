@@ -4,6 +4,25 @@
 
 # FirmWorks Files Release Notes
 
+## 0.85
+
+### Bug Fix
+
+#### FileTaxonmy Uploader for Flows
+
+Fixed issue where when using the delete button on uploaded files would would result in a state where no further actions could be completed. Now removing the files, will reinitialize the process.
+
+Added a helper button to bulk remove files that failed secondary validation (flows/apex/processes).
+
+Removed the top "Upload" button on the list.
+
+### Enhancements
+
+#### FileViewer
+
+Added configuration setting to set the "Items Per Page" result. The default is 50, which may perform too slowly in some contexts. FileViewer Administrators can now set this value to a lower number like 10 to reduce the amount of content loading.
+
+
 ## 0.84
 
 ### Enhancements
