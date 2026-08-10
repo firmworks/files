@@ -4,7 +4,33 @@
 
 # FirmWorks Files Release Notes
 
-## 0.85
+## 0.88
+
+### Bug Fixes and Enhancements
+
+#### Enhanced Upload
+
+Large files > 35mb are now cancellable
+Each upload's progress is displayed on upload, status is calculated more often.
+Fixed menu overlay that appeared on removal button menu
+Disallow users from removing items once uploaded.
+
+#### Batch Download
+
+Corrected issue where duplicate document ids prevented the service from working
+
+#### FileViewer
+
+Dynamic resizing controls have been reworked to handle more browsers/screens.
+
+Using "Browser Viewer" now limits the number of nested scroll bars.
+Using "Browser Viewer" supports FilesConnect References
+Using "Browser Viewer" supports larger files (Chrome limited 2mb files using datauris)
+
+Retry button appears for attempting to reload previews if they fail to load.
+
+
+
 
 ### Bug Fix
 
