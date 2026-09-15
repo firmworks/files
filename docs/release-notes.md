@@ -4,6 +4,22 @@
 
 # FirmWorks Files Release Notes
 
+## 0.91
+
+### Bug Fixes and Enhancements
+
+#### FileViewer
+
+Fix to Pagination issues calculating incorrectly
+
+Priortize Filter Selection UI responsivness
+
+Column resizing now stores manually sized column widths in SessionStorage. Helps across pages and sessions.
+
+## 0.90
+
+Fixes and performance updates to Heirarchical viewing.
+
 ## 0.88
 
 ### Bug Fixes and Enhancements
