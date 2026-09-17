@@ -1,0 +1,32 @@
+---
+---
+@import "{{ site.theme }}";
+
+// Slate fixes the content column at 640px. Let it grow with the window,
+// up to a comfortable maximum, so property tables have room.
+.inner {
+  max-width: 1100px;
+  width: 92%;
+}
+
+// Wide tables scroll inside their own box instead of overflowing the page.
+#main_content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+// Keep running text at a readable measure on very wide screens.
+// Tables, images and code blocks still use the full column width.
+#main_content p,
+#main_content li {
+  max-width: 80ch;
+}
+
+// Screenshots and animations: no wider than 640px, centered in the column.
+#main_content img {
+  display: block;
+  max-width: min(640px, 100%);
+  height: auto;
+  margin: 0 auto;
+}
