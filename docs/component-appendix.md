@@ -1,148 +1,183 @@
-# **Component Appendix**
+---
+title: "Using FileViewer"
+description: "End-user guide to FileViewer: settings, actions, search, tile and list views, previews, downloads, shared searches and URL parameters."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
 
-- [Component Appendix](#component-appendix)
-   - [FirmWorks Files Appendix](#firmworks-files-appendix)
-   - [File Tagger Button for Upload Appendix](#file-tagger-button-for-upload-appendix)
+[Back To Documentation](index.md)
 
-### **Firmworks Files Appendix**
+# Using FileViewer
 
-#### Settings
+FileViewer is the component behind the **File Search** tab and the FileViewer component on record pages. This page walks through what users see. Administrator settings are in the [Component Reference](component-reference.md#fileviewer) and [Configuration](configuration.md).
 
-This gear represents the FirmWorks Files advanced settings. Clicking it will reveal a menu with 4 tabs.
+- [Settings](#settings)
+- [Actions](#actions)
+- [Search Section](#search-section)
+- [Tile View](#tile-view)
+- [List View](#list-view)
+- [Previewing files](#previewing-files)
+- [Downloading files](#downloading-files)
+- [Sharing a search](#sharing-a-search)
+- [URL parameters](#url-parameters)
+- [Mobile](#mobile)
+- [Uploading with File Tagger Button For Upload](#uploading-with-file-tagger-button-for-upload)
 
-##### General Settings
+## Settings
 
-![FirmWorks Files Tag Launcher](images/advanced-settings-general.png)
+The gear icon opens FileViewer's settings. Choices are remembered per user, and per component when the administrator has set a Cache Id.
 
-1. Search Panel (Show/Hide) - This allows for a user to show and hide the search panel. By default the search panel is shown.
+### General Settings
 
-1. Results View (Tiles/List) - This allows for a user to toggle between seeing files as tiles or seeing files in a list
+![General settings](images/advanced-settings-general.png)
 
-##### Field Options
+1. **Search Panel (Show/Hide)** shows or hides the search panel. The administrator can lock this.
+1. **Results View (Tiles/List)** switches between tile and list views.
 
-![FirmWorks Files Tag Launcher](images/advanced-settings-field-options.png)
+### Field Options
 
-1. Select Fields to Display -  This allows users to modify their view to show specific tags they are interested in. Changing displayed fields does not affect FirmWorks File's ability to filter on those fields. To reset displayed fields click the "i" icon shown below. Click 'Apply Selection' to update the component with the displayed fields.
+![Field options](images/advanced-settings-field-options.png)
 
-    ![FirmWorks Files Displayed Fields Reset](images/advanced-settings-reset.png)
+1. **Select Fields to Display** chooses which tag fields appear on each file. It does not change which fields you can filter by. Click **Apply Selection** to update the view. The "i" icon resets to the administrator's defaults.
 
-##### Record Options
+   ![Reset displayed fields](images/advanced-settings-reset.png)
 
-![FirmWorks Files Tag Launcher](images/advanced-settings-record-options.png)
+1. **Filter values** can be curated the same way: choose which values of each filter field appear in the search panel. A button at the top of the panel clears the customization.
 
-1. Record Details (Show/Hide) - Toggling this will hide and show the Record Details tab. If Public LInks adn Entity Sharing have been turned off at the configuration level you will not see a Tab only the record details but this toggle still hides them.
+### Record Options
 
-1. Public Links (Show/Hide) - Toggling this will hide and show the Public Links Tab. This will only show if allowed in the configuration.
+![Record options](images/advanced-settings-record-options.png)
 
-1. Entity Sharing (Show/Hide) - Toggling this will hide and show the Entity Sharing Tab. This will only show if allowed in the configuration.
+1. **Record Details (Show/Hide)** hides or shows the details area on each file.
+1. **Public Links (Show/Hide)** hides or shows the Public Links tab. Only available when the configuration allows it.
+1. **Entity Sharing (Show/Hide)** hides or shows the Entity Sharing tab. Only available when the configuration allows it.
 
-##### List View Options
+### List View Options
 
-1. See the [List View Options](#list-view) section below for more information.
+See [List View](#list-view).
 
-#### Actions
+## Actions
 
-The lightning bolt represents the actions you can take from the FirmWorks Files Component
+The lightning bolt icon opens the actions menu. Every action applies to the files currently returned by the search, across all pages of results. The administrator controls which actions appear.
 
-   ![FirmWorks Files Actions](images/advanced-settings-actions.png)
+![Actions](images/advanced-settings-actions.png)
 
-   1. Download Data - This button will download an Excel sheet for all displayed Files. The Excel sheet shows a list of all the file field values for those files.
+1. **Download Data** downloads a spreadsheet with every tag field value for the files in the results. If public links exist, the link and password are included.
+1. **Download Relationships** downloads a spreadsheet of Content Document Ids with the object, record name and record Id of every record each file is linked to.
+1. **Download Files** downloads the files as a zip. See [Downloading files](#downloading-files).
+1. **Create Public Links** creates a public link for every file in the results.
+1. **Create Public Links with Passwords** does the same with a unique password per file. Links and passwords appear in Download Data.
+1. **Remove Public Links** removes public links and passwords from every file in the results.
+1. **Show Untagged Files** searches for files with no tag values, which is useful when cleaning up historical files. See [Historical File Clean-up](file-cleanup.md).
 
-   1. Download Relationships - This button will download an Excel sheet containing the Content Document Id and Linked Entity Details, such as a Object Name, Record name, and Record Id.
+## Search Section
 
-   1. Download Files -  This button will download a zip file containing all the displayed files.
+The search panel sits on the left. Nothing changes until you click **Apply**.
 
-   1. Create Public Links - This button will create public links in bulk for the files present in the FirmWorks Files UI. This is determine by the search filters set at the time of clicking the button. These will be included in the Download Data when clicked.
+1. **Search bar** searches file titles and text content. The administrator's Filter Objects setting decides which linked records can also be matched.
+1. **Tag filters**: one section per filter field. Tick the values you want. Lookup fields offer a record search.
+1. **Date ranges**: click the plus under "Within The Following Date Ranges" to add a filter on any Content Version date field. Choose a preset range or Custom for a date picker. Add as many as you need.
 
-   1. Create Public Links with Passwords - This button will create public links with passwords in bulk for the files present in the FirmWorks Files UI. This is determine by the search filters set at the time of clicking the button. Each file will have a unique password. Both the link and the password will be included in the Download Data when clicked
+   ![Date range filter](images/date_range_filter1.png)
 
-   1. Remove Public Links - This button will remove public links (and passwords ir present) in bulk for the files present in the FirmWorks Files UI. This is determine by the search filters set at the time of clicking the button.
+   ![Custom date range](images/date_range_filter2.png)
 
+1. **Related Records**: when the configuration has [Searching Related](configuration.md#step-9-searching-related) paths, a tree of related records appears. Expand a level, tick the records whose files you want included, and Apply. Buttons above the tree expand or collapse the selected items, refresh the selection and clear it. Some relationships may be selected for you automatically.
+1. **Reports**: when the configuration enables the report runner, a button lets you run a saved [File Report](file-reporting.md). The report's documents become the result set and you can filter them further.
+1. **Sort By** sorts by any sortable field, ascending or descending.
+1. **Max results** sets how many files show per page. The administrator sets the default.
 
-#### Search Section
+A warning icon in the panel means the administrator has applied a fixed filter you cannot remove.
 
-The top most bar will allow you to search any of the object allowed to be search from the setup of the component. If Search Objects was left blank it will search all objects. The Apply button will apply any search elements defined in the search section.
+## Tile View
 
-   1. Each tag is shown in the search section filter documents. Check the boxes for the tags you want to filter on the click Apply.
+Each file is a tile with a preview and its tag values.
 
-   1. Clicking the + button below the ‘Within The Following Date Ranges:’ section will result in a date filter section being added.
-   ![Date Range Filter1](images/date_range_filter1.png)
+1. **Preview**: click the thumbnail to open Salesforce's preview, or the scalable image if the administrator has enabled it.
+1. **Details**: click the pencil next to a tag to edit it. Files open in view, edit or read-only mode depending on the configuration.
+1. **Public Links**: create links, with or without passwords, set an expiration, and delete links for this file.
 
-   1. This allows you to use the date fields on the Content Version to filter. If you choose Custom range, you will be given a date picker UI to choose the dates.
+   ![Public links on a tile](images/component-appndix-tile-view-public-links.png)
 
-      ![Date Range Filter2](images/date_range_filter2.png)
+1. **Entity Sharing**: link the file to any other record, change the share type, or remove links. When the administrator has set up suggested relationships, related records such as an Opportunity's Account appear for one-click linking.
 
-      This can be added multiple times. Once you add dates to filter on click the Apply button.
+   ![Entity sharing on a tile](images/component-appndix-tile-view-entity-sharing.png)
 
-   1. Sort By will allow you to sort the searched files by the chosen field
+## List View
 
-   1. Max results limits the number of results per page by the chosen number
+List view shows one row per file with tag fields as columns, and a preview pane on the right.
 
-#### **Tile View**
+![List view options](images/advanced-settings-list-view-options.png)
 
-1. Results Section: This is the files returned by your search results. Each tile is set up the same way. Clicking one of the edit panels will allow the user to edit the file.
+### List Options
 
-   1. Preview of the Document - You can click this thumbnail to access the Salesforce modal preview of the file.
+1. **Scroll List (Fit/Scroll)**: Scroll lets columns take the width of their content with a horizontal scroll bar. Fit squeezes them into the visible width.
+1. **Use Last Modified Values (None/Use Last Values)**: when on, any value you edit in one row is offered as the default when you start editing the next row. Useful for tagging many similar files.
 
-   1. Details - You can click the pencil next to a Tag to edit them in the preview tile.
+   ![Use last modified values](images/advanced-settings-list-view-ulm.gif)
 
-   1. Public Links - Use this tab to create public links for the file you have selected. This can create links with passwords and delete links as well.
+1. **Auto Save Layout (Default/Auto Save)**: saves your layout changes in this browser. Column widths you resize are also remembered for the session.
+1. **Sliders** set the width and height of the scalable image in the preview pane.
 
-   ![FirmWorks Files LV Public Links](images/component-appndix-tile-view-public-links.png)
+### Editing in the list
 
-   1. Entity Sharing - Use this tab to create new Content Document Links to this record from any other object in Salesforce. You can also delete some Content Document Links from here as well.
+Click the pencil in a cell to edit it. Each field validates according to its type. The red pencil at the left of a row discards that row's edits. Edits on earlier pages are kept while you move between pages.
 
-   ![FirmWorks Files LV Public Links](images/component-appndix-tile-view-entity-sharing.png)
+### The preview pane
 
+Click the eye icon on a row to preview that file on the right. The pane has three tabs:
 
-#### **List View**
+1. **Scalable Image**: the file at the size set by the sliders.
+1. **Image**: the Salesforce thumbnail. Click it to open the standard preview.
+1. **Details**: the file's tags, as in tile view.
 
-![FirmWorks Files Tag Launcher](images/advanced-settings-list-view-options.png)
+A button collapses the preview pane to give the list more room on small screens.
 
-1. List Options:
+## Previewing files
 
-    1. Scroll List (Fit/Scroll) - This toggle will allow the columns to adjust to the length of the field and add a scroll bar to the bottom of the List View to allow a user to scroll through the grid.
+Salesforce generates preview images for most file types. When it does not, or the image quality is poor, use **Show In Browser's Viewer** from the file's menu. The Browser Viewer streams the file to your browser and lets the browser render it. It handles large PDFs, video and audio, HEIC photos, and files stored in external systems through Files Connect.
 
-    1. Used Last Modified Values (None/ Use Last Values) - When set to Use Last Values any valued manualyl edited will be translated to a new row when editing is initiated.
+The Browser Viewer requires the **API Enabled** permission. Users without it see an error naming the disabled API. If a preview fails to load, a **Retry** button appears.
 
-    ![FirmWorks Files Use Last Modified](images/advanced-settings-list-view-ulm.gif)
+## Downloading files
 
-    1. Auto Save Layout (Default/Auto Save) - When set to Auto Save the changes you make to the layout will be saved between session. This is saved on the browser and will not translate to other users or browser instances.
+Download Files, whether from FileViewer's actions menu, a File Report, or the Download Records Files component, requests files from Salesforce in batches of 800. Each batch downloads as its own zip in a new browser tab. When there is more than one batch, a dialog lists every download link so you can retry any that a pop-up blocker stopped.
 
-    1. Use slider to change width of the scalable image -  This will adjust the width of the scalable image tab in the document preview when the eye icon is clicked on the left hand side of a row.
+On phones and tablets each download opens with a short delay and Salesforce may ask you to log in again in the browser.
 
-    1. Use slider to change height of the scalable image - This will adjust the height of the scalable image tab in the document preview when the eye icon is clicked on the left hand side of a row.
+## Sharing a search
 
-1. Preview of the Document (on the right) - The Document preview has three tabs:
+After applying a search, the **Launch Last Search** button (its help text reads "Launch query to share or bookmark in browser") produces a URL that reopens FileViewer with the same search term, filters, date ranges and sort. Bookmark it or send it to a colleague. The recipient still only sees files they have access to.
 
-    1. Scalable Image - This is a view of the selected rows file. The width and height are set using the sliders in the List Options section.
+## URL parameters
 
-    1. Image - This is a thumbnail of the file that can be click to show the standard Salesforce preview.
+The File Search tab (`/lightning/n/firmworks__File_Viewer`) accepts these parameters:
 
-    1. Details - This tab can be use to see the Tags in the same way as the tile view.
+| Parameter | Purpose |
+|---|---|
+| `c__contentIds` | Comma delimited Content Document (069) or Content Version (068) Ids. Only these files are shown; searching and filtering work within them. Ids that are not 15 or 18 characters, or do not start with 068 or 069, are ignored. |
+| `c__configurationName` | Developer name of the configuration to apply. |
+| `c__search` | An encoded search produced by the Launch Last Search button. |
+| `c__reportBuilder` | An encoded report, produced when a File Report Results component opens its files in FileViewer. |
 
-    1. Public Links - Use this tab to create public links for the file you have selected. This can create links with passwords and delete links as well.
+The Tag and Upload screens use `c__contentIds` for their "Open in FileViewer" post-upload action, and the Note Manager uses it for Show In FileViewer.
 
-    ![FirmWorks Files LV Public Links](images/component-appndix-list-view-public-links.png)
+A malformed parameter shows the message "Unable to parse the URL parameters correctly" and FileViewer loads normally.
 
-    5. Entity Sharing -  Use this tab to create new Content Document Links to this record from any other object in Salesforce. You can also delete some Content Document Links from here as well.
+## Mobile
 
-    ![FirmWorks Files LV Public Links](images/component-appndix-list-view-entity-sharing.png)
+In the Salesforce mobile app FileViewer uses an accordion layout with the search panel, results and preview in separate sections. In list view the preview sits above the list.
 
-1. Live View Columns -  These columns are fully editable for each row by clicking a pencil in the column. To delete all edits click the red pencil on the left of the row next to the eye icon. Each Row will have validation for specific field types setup on the Salesforce Object. Each row is set up the same way. Clicking the eye icon on the left of a row to Show the file on the right.
+## Uploading with File Tagger Button For Upload
 
-#### **File Tagger Button for Upload Appendix**
+![Tag and Upload screen](images/component-appndix-file-tagger.png)
 
-![FirmWorks Files File Tagger Button for Upload](images/component-appndix-file-tagger.png)
+Follow the steps in order so tags and sharing apply to every file.
 
-When using this UI please make sure you follow the steps in order (1 -> 2 -> 3) to make sure tagging and sharing works correctly with each file.
+1. **Tags**: set the tag values before choosing files. The values apply to every file uploaded in that batch. Change them and upload again to tag the next batch differently. Fields marked required must be filled first.
+1. **Visibility**: whether the files are visible to All Users, including Experience Cloud users, or only to internal users (Default).
+1. **Share type**: **Record** lets anyone with access to the record see and edit the files according to their record access. **Viewer** gives read-only access.
+1. **Upload**: drag files one at a time, or click Upload Files to pick several. When [Enhanced Upload](enhanced-upload.md) is enabled you can switch to it here to upload hundreds of files with progress, duplicate detection and versioning.
 
-1. This Section Shows you the Tags they can be associated with the files uploaded. Make sure to set your tags before you upload the file. Tags can be left the same between upload or changed. If you use the Upload Files button the set tags will be associated with all files uploaded.
+![Enhanced upload](images/component-appndix-bulk-file-upload.gif)
 
-1. This section allows for the user to decide if the uploaded files should be shared with all users (All Users) or only internal users (Default). This works on a per file bases if drag drop is used or with multiple files if using the Upload Files button.
-
-1. This Section allows for the user to decide if they want to have the files shared with inferred sharing from the related records (Record) or only if the file should be view only to people with record access (viewer). This works on a per file bases if drag drop is used or with multiple files if using the Upload Files button.
-
-1. This is the section where you literally upload the files. You can drag drop one file at a time or click the upload files button to upload multiple files. If Large File Upload is enabled you can upload more then 10 records at a time and the UI will change to shoo you how the upload is progressing.
-
-![FirmWorks Files Bulk Upload](images/component-appndix-bulk-file-upload.gif)
+After the upload, depending on the administrator's settings, the screen closes, shows the uploaded files as tiles, or opens them in the File Search tab.

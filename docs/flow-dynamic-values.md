@@ -1,7 +1,14 @@
-![](./images/fileviewer.png)
-[Documentation](index.md)
+---
+title: "Dynamic Field Values in Flows"
+description: "Build the JSON that presets tag and filter values on FirmWorks Files flow components."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
 
 # Passing Values Into the "File Upload & Tagger For Flows" component
+
+The **3. Configuration: Dynamic Field Values** setting on File Upload & Tagger For Flows takes a JSON string of Content Version field API names and values, and presets those tags when the screen loads. FileViewer's **5. Dynamic Configuration: Dynamic Filter Values** setting accepts the same JSON to preset filter values. This page explains how to build the JSON in a flow formula.
 
 ## Prepare a valid JSON string using a Text formula
 
@@ -13,7 +20,7 @@ Construct the outer wrapper for the JSON object in the formula field like this:
 ```json
 '{' + '' + '}'
 ```
-Fields and their values are constructed using double quotes around the field name, and double quotes around the field value. The field name and the field value are seperated by the colon charcter ":"
+Fields and their values are constructed using double quotes around the field name, and double quotes around the field value. The field name and the field value are separated by the colon character ":"
 If we have a Check box field we want to set to true.
 
 ```json
@@ -24,7 +31,7 @@ becomes
 {"Checkbox_Field__c":"true"}
 ```
 
-Multiple Fields are seperated by commas.
+Multiple Fields are separated by commas.
 
 Adding a datetime field into the formula.
 ```json
@@ -50,7 +57,7 @@ There are limitations of the type of JSON being represented by Salesforce flows 
 |Number|"####.##" -> "987.65"|wrap the numerical values in quotes (not standard json)|
 |Phone|||
 |Picklist|"value1"|Use the API value and not the Label|
-|Multi-picklist|"value1;value2"|Seperate API values are joined with semi-colon ";"|
+|Multi-picklist|"value1;value2"|Separate API values are joined with a semi-colon ";"|
 |Text|"abc"|*Caution - If allowing user created values, you must escape them with the built in Text formula JSINHTMLENCODE() to ensure they do not corrupt the json|
 |Text Area/Long|"abc"|*Caution - If allowing user created values, you must escape them with the built in Text formula JSINHTMLENCODE() to ensure they do not corrupt the json|
 |URL|"https://validURL.com"||
@@ -72,7 +79,7 @@ If your flow allows the recalculation of values through navigation (going back/p
 Error in component - Dynamic Field Error: Dynamic Field Values: Invalid Fields Detected
 ![](images/flows/dynamic_values/component_error_invalid_fields.png)
 
-A check is performed to ensure that the JSON is properly formatted and that the fields specified exist on the ContentVersion object. Salesforce security guidelines prohibit refecting user values back as an XSS vulnerablility.
+A check is performed to ensure that the JSON is properly formatted and that the fields specified exist on the ContentVersion object. Salesforce security guidelines prohibit reflecting user values back as an XSS vulnerability.
 
 The code that is checking is simply the following which can be run from an execute anonymous:
 

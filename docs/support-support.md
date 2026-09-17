@@ -1,3 +1,7 @@
+---
+title: "Grant FirmWorks Support Access"
+description: "How to grant FirmWorks Support login access to your Salesforce org, and what FirmWorks will never ask for."
+---
 <img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
 
 [Back To Documentation](index.md)
@@ -16,34 +20,31 @@
 
 Why would FirmWorks Support need access to my Organization?
 
-    FirmWorks Support may ask you to Grant Login Access in order to assist you with a question, issue, or request.
+FirmWorks Support may ask you to Grant Login Access in order to assist you with a question, issue, or request.
 
-    This is so that Support can log in to the application using your login to troubleshoot and fix issues stemming from your inquiry.
+This is so that Support can log in to the application using your login to troubleshoot and fix issues stemming from your inquiry.
 
-    No one within FirmWorks Support may log in to your Org to resolve issues without this explicit permission and duration for the access.
-
+No one within FirmWorks Support may log in to your Org to resolve issues without this explicit permission and duration for the access.
 
 ## How to Grant Login Access to FirmWorks
 
-Salesforce Lightning
+### Salesforce Lightning
 
-
-    Log in to Salesforce.
-    In the upper right, click your image (avatar) and then click Settings.
-    In "Quick Find" search field, enter "Grant" and click Grant Account Login Access.
-    Set the Access Duration option to FirmWorks Support.  Note: To avoid unnecessary back and forth granting access please allow ample time for our team to address the request. You may choose to revoke access after the engagement has completed.
-    Click Save.
+1. Log in to Salesforce.
+1. In the upper right, click your image (avatar) and then click Settings.
+1. In "Quick Find" search field, enter "Grant" and click Grant Account Login Access.
+1. Set the Access Duration option to FirmWorks Support. Note: To avoid unnecessary back and forth granting access please allow ample time for our team to address the request. You may choose to revoke access after the engagement has completed.
+1. Click Save.
 
 ![Granting Access](images/support/grant_login_access.gif)
 
-Salesforce Classic
+### Salesforce Classic
 
-
-    Log in to Salesforce.
-    In the upper right, click My Settings (or click on your name, then click My Settings)
-    In "Quick Find" search field, enter "Grant" and click Grant Login Access.
-    Set the Access Duration option to FirmWorks Support.  Note: To avoid unnecessary back and forth granting access please allow ample time for our team to address the request. You may choose to revoke access after the engagement has completed.
-    Click Save.
+1. Log in to Salesforce.
+1. In the upper right, click My Settings (or click on your name, then click My Settings)
+1. In "Quick Find" search field, enter "Grant" and click Grant Login Access.
+1. Set the Access Duration option to FirmWorks Support. Note: To avoid unnecessary back and forth granting access please allow ample time for our team to address the request. You may choose to revoke access after the engagement has completed.
+1. Click Save.
 
 To revoke account login access at any time, click Revoke Access next to the date range field.
 

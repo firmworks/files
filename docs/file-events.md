@@ -1,165 +1,128 @@
-![](./quickStartImages/FirmWorks Files.png)
-[Documentation](index.md)
+---
+title: "File Events"
+description: "Platform events for Content Document, Content Version and Content Document Link changes, and how to build flows on them."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
 
 # File Events
 
-File Events creates Salesforce Platform Events to allow you to create business logic based on Salesforce Content record changes. Salesforce does not allow Record Triggered flows on the Files objects, but the Platform Events published from the File Events package are based on the Content Document, Content Version, and Content Document Link. This allows you to create critical business logic based upon Salesforce File inserts, updates and deletions
+Salesforce does not allow record-triggered flows on the Files objects. File Events fills that gap by publishing Platform Events whenever a Content Document, Content Version or Content Document Link is inserted, updated, deleted or undeleted. You subscribe to those events with Platform Event Triggered Flows, Apex, or the Pub/Sub API and build automation from them.
 
-For reference here is a high level image of the Salesforce File Object Structure and how it works with FirmWorks Files.
+For reference, here is how the Salesforce Files objects relate to each other and to FirmWorks Files.
 
-![File Events Metadata 1](images/fileevents/fileevents-salesforce-file-structure.png)
+![Salesforce file structure](images/fileevents/fileevents-salesforce-file-structure.png)
 
-To get the File Events package please contact sales@getfirmworks.com or log a case with [support](https://getfirmworks.com/support/)
+- [Setup](#setup)
+- [Turning events on and off](#turning-events-on-and-off)
+- [Building a Platform Event Triggered Flow](#building-a-platform-event-triggered-flow)
+- [Event reference](#event-reference)
+- [Deleted files](#deleted-files)
+- [Considerations](#considerations)
+- [Content Download Events](#content-download-events)
 
-For more information on Salesforce Platform Event please see the Salesforce documentation below.
+## Setup
 
-https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_intro.htm
+File Events is part of the FirmWorks Files package. Two things must be true before events publish:
 
-## Configuration and Setup
+1. **The File Platform Events license feature is on.** FirmWorks enables this per customer. When it is off, the Configurator's File Events tab shows "FirmWorks File Events Is Not Enabled! Please Contact FirmWorks to Enable this Feature". Contact <support@getfirmworks.com>.
+2. **The events you want are turned on.** All events are off after installation. See the next section.
 
-Once the File Events package has been installed you can use it right away. There are no permission sets to share or licenses to manage.
+Users who build flows on these events or call the deleted-document actions need the **FirmWorks File Events** permission set. It is included in every FirmWorks Files permission set group. See [Permissions and Licensing](permissions.md).
 
-## File Event Management
+## Turning events on and off
 
-Specific Salesforce object events (before/after, insert, update, delete) can be disabled via an included custom metadata configuration record. This ability to turn on and off the generation of Platform events based on Content object's DML is useful to control your business process work flows (e.g. bulk data updates).
+Open the **FirmWorks Files Configurator** tab and choose the **File Events** tab. There are three cards, one per object:
 
+| Card | Toggles | Publishes |
+|---|---|---|
+| ContentDocument Triggers | After Insert, After Update, After Delete, After Undelete | Content Document Event |
+| ContentVersion Triggers | After Insert, After Update | Content Version Event |
+| ContentDocumentLink Triggers | After Insert, After Update, After Delete | Content Document Link Event |
 
-The included Custom Metadata Type to control the Platform Event generation is called 'Apex Trigger Setting'. To get to the Custom Metadata record - Enter Salesforce Setup and Type Metadata in the Quick Find and then select Custom Metadata Types. Click 'Manage records' to the left of the 'Apex Trigger Setting' Custom Metadata Type.
+Turn on the toggles you need and click **Save** on that card. The setting deploys as a custom metadata record and the card shows "Saved!" when it is done.
 
+Turning everything off for an object stops that object's trigger from publishing. This is useful during bulk data loads, when you may not want thousands of flows to fire.
 
-![File Events Metadata 1](images/fileevents/fileevents-fem-metadata1.png)
+Behind the tab, the toggles write the **Content Apex Trigger Setting** custom metadata type (`EV_Apex_Trigger_Setting__mdt`). You can also edit its three records, `Content_Document_Events`, `Content_Version_Events` and `Content_Document_Link_Events`, in Setup > Custom Metadata Types. The **Service Class** field names the Apex class that handles the trigger; leave it blank to use the packaged handler, or name your own class that implements the `firmworks.EV_ITriggerService` interface.
 
-There are three records in this Metadata Type, one for each sObject Involved in Salesforce Files; Content Document, Content Version, and Content Document Link. Each record controls the trigger for that object and when it will publish the Platform Event.
+## Building a Platform Event Triggered Flow
 
-To Fully Disable a File from creating a Platform Event uncheck all of the action type boxes (After Insert, After Update, After Delete, After Undelete), then save the record. The Example below would mean that we would not be creating Platform Events for the Content Version Object, thus automation could not be build from it using the File Events Package.
+If you are new to flows, Salesforce's [Automate Business Processes](https://trailhead.salesforce.com/content/learn/trails/automate_business_processes) trail is a good start.
 
-![File Events Metadata 2](images/fileevents/fileevents-fem-metadata2.png)
+1. Setup > Flows > New Flow > **Platform Event-Triggered Flow**.
+2. Choose one of the FirmWorks events: **Content Document Event**, **Content Document Link Event** or **Content Version Event**.
+3. Build the flow as you would a record-triggered flow. The event's fields are available on `$Record`.
 
-In the next example, we would only get Platform Events when a Content Document link was created or deleted.
+![Platform event triggered flow](images/fileevents/fileevents-fef-flows1.png)
 
-![File Events Metadata 3](images/fileevents/fileevents-fem-metadata3.png)
+![Choosing a FirmWorks event](images/fileevents/fileevents-fef-flows2.png)
 
-Once we have established which Platform Events to get published we can continue on to building automation using Salesforce Platform Event Triggered Flows.
+Which event to use:
 
+- **Content Document Event** for anything that happens to the file as a whole: created, retitled, deleted, undeleted. Use this for insert and delete rather than the Content Version event.
+- **Content Document Link Event** for a file being linked to a record. A Content Document Link connects a file to an Account, Case, custom object, user or library. Use this to act on the related record when a file arrives, or to set default tags based on where it was uploaded.
+- **Content Version Event** for changes to a file's tags or a new version of its content.
 
-## File Event Flows
+The package includes a template for each event. Open Setup > Flows > Templates, save a copy, and adapt it. See [Flow Templates and Invocable Actions](flow-templates-and-actions.md).
 
-Salesforce publishes excellent learning materials on the uses of Flows - Check out this free Trailhead before continuing. [
-https://trailhead.salesforce.com/content/learn/trails/automate_business_processes](
-https://trailhead.salesforce.com/content/learn/trails/automate_business_processes)
+## Event reference
 
-
-
-Platform Event Triggered flows are just like a record triggered flow but the record is just one of File Events Platform Events instead of a sObject.
-
-
-To create a new Platform Event Triggered Flow go to Salesforce Setup and type Flows into the Quick Find and select Flows. then Click New Flow and Choose Platform Event Triggered Flow.  Click Create to Start Building your new Flow.
-
-
-![File Events  Flows 1](images/fileevents/fileevents-fef-flows1.png)
-
-You will need to select one of the following Platform Events to start building automation with:
-
-
-![File Events  Flows 2](images/fileevents/fileevents-fef-flows2.png)
-
-- **Content Document Event** - Use this event if you need to trigger automation when a Content Document is Created, Updated, Deleted, or Undeleted. This could be used when you want to change a File's Title or take an action when a File is deleted.
-- **Content Document Link Event** - Use this event if yu need to trigger automation when a Content Document Link is Created. A Content Document Link connects a Salesforce record (like an Account, Case or custom objects) to a Content Document. This event could be used to take an action on a related object when a file is uploaded to it or to adjust/default a ContentVersion field based on the object it is uploaded to.  An important note - Content document links deletion events do not always fire, undelete is always unsupported.
-
-- **Content Version Event** - Use this event if you want to trigger automation when a Content Version is Updated. This could be used to trigger automation based on a File Tag or to build or update an Analog Object to use Salesforce reporting on your tags. An important note - Content Version events do not fire insert, delete and undelete events - track these events with the Content Document events instead.
-
-
-Once you have selected which Platform Event to use, you can then continue building your automation like you would with a Record Triggered Flow. The next section will describe the fields on the three Platform Events in depth.
-
-
-## File Event Platform Event Glossary
+All three events carry an **Action** field naming the trigger context, and the Ids needed to look up the affected records.
 
 ### Content Document Event
 
-Action - This field will tell you what context the platform event was created in. It can be one of the following values:
-
-- afterInsert
-- afterUpdate
-- afterDelete *As of 2023-09-01 Salesforce doesn't provide a mechanism for Flows to add the 'All Rows' modifier to query for deleted records. See [invocableMethod](#querying-for-deleted-content-document-links)
-- afterUndelete
-
-Content Document Id - This is the Content Document Id that created the Platform Event.
+| Field | Meaning |
+|---|---|
+| Action | `afterInsert`, `afterUpdate`, `afterDelete` or `afterUndelete`. |
+| Content Document Id | The file. On `afterDelete` the record is already gone; see [Deleted files](#deleted-files). |
 
 ### Content Document Link Event
 
-Action - This field will tell you what context the platform event was created in. It can be one of the following values:
+| Field | Meaning |
+|---|---|
+| Action | `afterInsert`, `afterUpdate` or `afterDelete`. Undelete is not available for this object. |
+| Content Document Id | The file. |
+| Content Document Link Id | The link record. |
+| Linked Entity Id | The record the file was linked to. This is polymorphic, so check the Id prefix or object type before using a Get Records element on it. |
 
-- afterInsert
-- afterUpdate
-- afterDelete *Salesforce doesn't fire this event in all circumstances - for instance if a file is deleted there is no cascade delete events for all of its content document links.
-
-- afterUndelete *Not Available
-
-
-Content Document Id - This is the Content Document Id that created the Platform Event.
-
-Content Document Link Id - This is the Id of the Content Document Link. This is a junction object that connects a Content Document and any other File enabled sObject.
-
-Linked Entity Id - This is the Id for the sObject that is connected to the Content Document via the Content Document Link. This is a polymorphic lookup so it can be any object that allows files. In a Flow that uses this Id you will need to ascertain what the Object Name is before doing Get Elements to prevent errors.
+Deleting a file does not fire a delete event for each of its links. Use the Content Document Event's `afterDelete` for that case.
 
 ### Content Version Event
 
-Action - This field will tell you what context the platform event was created in. It can be one of the following values:
+| Field | Meaning |
+|---|---|
+| Action | `afterInsert` or `afterUpdate`. |
+| Content Document Id | The file. |
+| Content Version Id | The version. Tag fields live on the Content Version. Use this Id to read or update tags. |
 
-- afterInsert *Use ContentDocument insert event instead
+`afterInsert` fires for the first version and every new version uploaded. For "a new file was created", the Content Document Event is simpler because it fires once per file.
 
-- afterUpdate
-- afterDelete *Use ContentDocument delete event instead
+## Deleted files
 
-- afterUndelete *This currently is unsupported
+A flow cannot query a deleted record, so a Content Document Event with action `afterDelete` gives you an Id you cannot look up. Two invocable actions in the **Files** category solve this:
 
+- **Fetch Related Records For A Deleted Content Document** returns the Ids of the records the file was linked to.
+- **Fetch Latest ContentVersion Record For A Deleted Content Document** returns the last version of the file with its tag values.
 
-Content Document Id - This is the Content Document Id that created the Platform Event.
+Both take a Content Document Id. The Content Document Event flow template shows them in use. Details are in [Flow Templates and Invocable Actions](flow-templates-and-actions.md#fetch-related-records-for-a-deleted-content-document).
 
-Content Version Id - This is the Id of the Content Version. The Content Version is where the Tagging Data is stored in Salesforce. Use this object to view and update tags on the Files.
+## Considerations
 
-## Considerations When Using File Events
+- Events publish after the transaction commits, so a flow that reads the record sees the committed state.
+- Enhanced Upload writes tags to Content Versions in chunks of 25 files to stay within limits when Content Version triggers are on.
+- The **FirmWorks Files Event** (`File_Viewer_Event__e`) that also ships with the package is not a file event. It reports the result of saving a configuration or report and is consumed by the Configurator. Do not subscribe to it for file automation.
+- The **File Report Event** is published by scheduled File Reports, not by file changes. See [Scheduling Reports](file-reporting.md#scheduling-reports).
 
-- If you are using Bulk Upload feature within FirmWorks Files (below version 0.26) you will not be able to use the Content Version Event and will need to turn fully deactivate the Content Version Apex Trigger Setting. If you do not, it could result in the following error:
+## Content Download Events
 
+A separate, unmanaged package can publish an event whenever a file's contents are downloaded. It is available on request from <support@getfirmworks.com>. Each event records who downloaded the file, when, which file, and how (Salesforce UI, public link, REST API, SOQL and so on).
 
-![File Events  Flows 1](images/fileevents/fileevents-considerations1.png)
-
-## Invocable Methods
-
-### Querying For Deleted Content Document Links
-
->Available in File Events version 1.0.2+
-
-Salesforce does not provide a mechanism in Flows to query for deleted records. Primarily an issue when utilizing the ContentDocument afterDelete event. The event will return the Content Document Id of the deleted ContentDocument. However it is not possible to get the affected ContentDocumentLink junction object records to determine which related (linked) entity ids to take action with.
-
-APEX Invocable action
-"Fetch Related Records For A Deleted Content Document"
-
-The invocable action takes in a ContentDocumentId as a parameter and returns a list of Ids from the LinkedEntityId field on the deleted records. This is useful to update the related records in case the document was fulfilling a requirement as part of a workflow.
-
-The invocable action is unable to be fully 'bulkified' and incurs 1 SOQL call per execution as Salesforce has the following 2 limitations on the ability to query for deleted ContentDocumentLink records.
-- System.QueryException: Implementation restriction: ContentDocumentLink requires a filter by a single Id on ContentDocumentId or LinkedEntityId using the equals operator or multiple Id's using the IN operator.
-- Implementation restriction: filtering on non-id fields is only permitted when filtering by ContentDocumentLink.LinkedEntityId using the equals operator.
-
-
-## Content Download Events - Available upon request as an unmanaged package due to Salesforce handling of namespaces
-
-Content Download Events fire whenever a document's contents are queried out of Salesforce.
-With this Event type an organization can use a flow to subscribe to the events and provide notifications, usage, and other metrics to a custom object.
-
-With the custom metadata type firmworks__Content_Download_Setting__mdt - Manage Records
 ![Content Download Events](images/fileevents/content_download_setting.png)
 
-Information from when a document is downloaded
+Example event from a download in the Salesforce interface:
 
-
-- CreatedById - User that create the event
-- CreatedDate - Date and time the event was created
-- firmworks__Content_Id__c - Id of the record downloaded
-- firmworks__Context__c - The method of download - values are CHATTER, CONTENT, DELIVERY, REST_API, RETRIEVE, S1, SOQL
-
-Example downloading from the main Salesforce Interface
 ```json
 {
   "CreatedById": "005Ea000003z4szIAA",
@@ -169,7 +132,8 @@ Example downloading from the main Salesforce Interface
 }
 ```
 
-Example downloading from a public link (the created by should be the user that created the delivery method)
+Example from a public link download. Created By is the user who created the link:
+
 ```json
 {
   "CreatedById": "005Ea000003z64hIAA",
@@ -179,3 +143,4 @@ Example downloading from a public link (the created by should be the user that c
 }
 ```
 
+Context values are CHATTER, CONTENT, DELIVERY, REST_API, RETRIEVE, S1 and SOQL.

@@ -1,22 +1,51 @@
-![](./images/fileviewer.png)
-[Documentation](index.md)
+---
+title: "Features"
+description: "An overview of FirmWorks Files features: tagging, search, viewing, sharing, Enhanced Upload, reporting, Notes and flows."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
 
 # Features
 
+1. [Compared with Stock Salesforce Files](#compared-with-stock-salesforce-files)
 1. [Upload and Tag](#upload-and-tag)
 1. [Search and Filter](#search-and-filter)
-1. [View on Record](#view-on-record)
-1. [Resizable Preview](#resizable-previews)
+1. [Read Documents Without Leaving the Record](#read-documents-without-leaving-the-record)
+1. [Curated File Lists on Record Pages](#curated-file-lists-on-record-pages)
 1. [Public Link Management](#public-link-management)
 1. [Enhanced Entity Sharing Management](#enhanced-entity-sharing-management)
-1. [Bulk Upload](#bulk-upload)
+1. [Enhanced Upload](#enhanced-upload)
 1. [Tag and Update Existing Documents Quickly](#tag-and-update-existing-documents-quickly-and-easily)
-1. [Multi file Viewer](#tabbed-viewer)
 1. [Enhanced Flow Support](#enhanced-flow-support)
 1. [Tabbed Viewer](#tabbed-viewer)
 1. [Powerful File Reporting](#file-reporting)
 1. [File Auditing and Compliance](#file-auditing-and-compliance)
 1. [Record Reports](#record-reports)
+1. [Related Records Search](#related-records-search)
+1. [Run Reports Inside FileViewer](#run-reports-inside-fileviewer)
+1. [Browser Viewer](#browser-viewer)
+1. [Conditional and Required Tag Fields](#conditional-and-required-tag-fields)
+1. [Share a Search](#share-a-search)
+1. [FirmWorks Notes](#firmworks-notes)
+1. [Languages and Mobile](#languages-and-mobile)
+
+## Compared with Stock Salesforce Files
+
+FirmWorks Files builds on Salesforce Files rather than replacing them. Every file is still a standard Salesforce file. What changes is how much users can do with a file without leaving the record they are working on.
+
+| Need | Stock Salesforce Files | FirmWorks Files |
+|---|---|---|
+| Read a document | Open a preview modal, or navigate to the file's own page and back | Read and inspect the document in a resizable viewer on the record page itself. Fewer clicks, and the user never leaves the record's context. |
+| Curate which files show on a record page | Not available. The Files related list shows every file. | Configurable lists: show only files matching a filter, only files of a type, or files from related records, as tabs, a carousel or tiles. |
+| Find a file by business attributes | Title search only | Search plus filters on any custom field, related record, date, and type |
+| Enforce classification at upload | None | Required, defaulted, and dependent fields before the file is saved |
+| Upload many files at once | 10 at a time (25 by request to Salesforce) | Thousands in one session, with duplicate detection and versioning |
+| See files across a record hierarchy | One record at a time | Configurable related schema paths |
+| Prove compliance ("every X has a Y") | Custom reports or code | Point-and-click File Reports with scheduling and Flow events |
+| React to file activity | Apex triggers you write | Packaged platform events, Flow templates, and invocables |
+| Share externally | Manual public links | Bulk links with passwords, expiry, tracking, and Flow automation |
+| Notes with history | Basic Notes | Versioning, compare, restore, PDF export |
 
 ## Upload And Tag
 
@@ -26,21 +55,21 @@ Easily Tag Files As They are Uploaded
 
 ## Search and Filter
 
-Driven by your organizations's values
+Driven by your organization's values
 
 ![Search Features](images/features/search_features.png)
 
-## View on Record
+## Read Documents Without Leaving the Record
 
-View image, pdf and doc files directly on the record without navigating away
-
-![View on layout Features](images/features/view_on_layout.gif)
-
-## Resizable Previews
-
-Resize the viewing pane directly on the layout to read the fine print.
+The scalable viewer opens images, PDFs, Office documents, video and audio directly on the record page. Users read contracts, inspect drawings and check scanned forms where they are working, instead of clicking into a preview modal or navigating to the file's own page and back. Resize the viewing pane to read the fine print, then keep working on the record.
 
 ![View on layout Features](images/features/view_on_layout.gif)
+
+## Curated File Lists on Record Pages
+
+Salesforce's Files related list shows every file on a record with no way to filter it. FirmWorks Files lets administrators decide which files appear and how. A [configuration](configuration.md) can limit a component to files of a certain type or tag, add files from related records such as an Account's Contacts, and present them as tabs, a carousel or tiles with [Record's Content Viewer](component-reference.md#records-content-viewer). Put a "Signed Contracts" viewer on the Account page and a "Photos" carousel on the Case page, each showing only what belongs there.
+
+![Tabbed viewers](images/features/tabbed_files.gif)
 
 ## Public Link Management
 
@@ -68,9 +97,9 @@ After the Account 'DIA' is linked to the note, the child contact records are the
 
 ![Suggested Contacts](images/features/entity_sharing/features-related-suggested-contacts.png)
 
-## ~~Bulk~~Enhanced Upload
+## Enhanced Upload
 
-Upload hundreds if not thousands of files at once
+Formerly Bulk Upload. Upload hundreds if not thousands of files at once
 
 [Enhanced Upload](enhanced-upload.md)
 
@@ -86,7 +115,7 @@ Quickly and easily work with your existing files and documents to give them the 
 
 ## Enhanced Flow Support
 
-Guide users and customer through a flow to upload files as part of a process and use reporting to validated the files exist before moving on to future steps
+Guide users and customers through a flow to upload files as part of a process and use reporting to validate that the files exist before moving on to future steps
 
 ![FirmWorks Files in a Flow](images/features/fileviewer-in-a-flow.gif)
 
@@ -114,5 +143,33 @@ Reports can be built to your exacting requirements and scheduled to run on your 
 
 ## Record Reports
 
-Save a report and drop a component on a layout to help alert your users if documentation is missing.
+Save a report and drop the [File Report Runner For Records](component-reference.md#file-report-runner-for-records) component on a layout to alert your users when documentation is missing, with your own message and a link to the documents that satisfied the report. The same component works on flow screens and can block the flow until the documents are in place.
+
+## Related Records Search
+
+See the files of related records without leaving the page. From an Account, include the files of its Contacts, Opportunities and Cases, or any custom relationship, by defining schema paths in a configuration. Users pick the related records in FileViewer's search panel, or the administrator includes them automatically. See [Searching Related](configuration.md#step-9-searching-related).
+
+## Run Reports Inside FileViewer
+
+Saved File Reports can be run from FileViewer's search panel. The report's documents become the result set, ready to filter, tag, share or download. Administrators choose which reports are offered.
+
+## Browser Viewer
+
+When Salesforce cannot generate a good preview, **Show In Browser's Viewer** streams the file to the browser and lets it render the file directly. Large PDFs, video, audio, HEIC photos and Files Connect external files all open in place.
+
+## Conditional and Required Tag Fields
+
+Require tag fields on upload, make fields read-only, and show a field only when another field has a given value, for example show Contract Type only when Category is Legal. All of it is set in a configuration without code. See [Configuration](configuration.md).
+
+## Share a Search
+
+One click turns the current search, filters and sort into a URL that can be bookmarked or sent to a colleague.
+
+## FirmWorks Notes
+
+A note editor built on Salesforce Notes with autosave, tags, search, version history with side-by-side compare and restore, and one-click conversion to PDF. See [FirmWorks Notes](notes.md).
+
+## Languages and Mobile
+
+All user-facing text is available in English, Spanish, Spanish (Mexico) and French. FileViewer has a layout for the Salesforce mobile app, and multiple FirmWorks components on one page refresh each other after uploads, edits and deletes.
 

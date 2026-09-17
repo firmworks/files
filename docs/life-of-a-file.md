@@ -1,17 +1,25 @@
+---
+title: "The Life of a File"
+description: "How FirmWorks Files supports a file from upload through tagging, searching, viewing, sharing and auditing."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
+
 # The files life
 
 FirmWorks files provides a myriad of components to assist in working with Salesforce files. The story begins with ingestion of the file via uploading to Salesforce.
 
 ### Uploading
 
-#### Batch upload up to thousands of files at once
+#### Upload up to thousands of files at once with Enhanced Upload
 
 Native Salesforce limits users to 10 at a time (Limit can be increased to 25)
 
 Firmworks Files gives users the ability to upload thousands at a time.
 ![bulk upload](images/lifecycle/bulkupload.gif)
 
-#### Batch upload new versions and ignore duplicates
+#### Upload new versions and skip duplicates
 ![bulk upload duplicate detection](images/lifecycle/bulk-duplicate-detection.png)
 
 #### Tag files with their correct taxonomies during upload
@@ -44,7 +52,7 @@ Support files in flows and automation
 
 #### View videos, photos, pdfs, word docs, heic files and more
 
-#### Curate tabs on layouts to help your teams instantly find files without opening them all - Caurosel and tabbed viewers
+#### Curate tabs on layouts to help your teams instantly find files without opening them all - Carousel and tabbed viewers
 ![File Views](images/lifecycle/view-files.gif)
 
 ### Sharing
@@ -63,11 +71,11 @@ Support files in flows and automation
 
 ### Automate Auditing & Compliance
 
-#### Discover Salesforce records that DONT have a file of a specific taxonomy
+#### Discover Salesforce records that don't have a file of a specific taxonomy
 
-#### Complete File profiles where multiple heterogenus files make up a the completness of a bundle of files
+#### Complete file profiles where multiple heterogeneous files make up the completeness of a bundle of files
 
-#### Schedule reports that generate platform events to drive business processes and get your users to perform the activites required.
+#### Schedule reports that generate platform events to drive business processes and get your users to perform the activities required.
 
 #### Find files to be culled for clean up
 

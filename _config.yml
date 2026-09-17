@@ -1,1 +1,4 @@
 theme: jekyll-theme-slate
+title: FirmWorks Files Documentation
+description: Documentation for FirmWorks Files, the native Salesforce application for storing, tagging, finding and sharing files.
+show_downloads: false

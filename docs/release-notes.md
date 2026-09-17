@@ -1,8 +1,22 @@
+---
+title: "Release Notes"
+description: "What changed in each FirmWorks Files release."
+---
 <img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
 
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
+## 0.92
+
+### Enhancements
+
+CSS updates to ensure compatibility with DarkMode themes, SLDS2, SLDS1.
+
+#### FileViewer
+
+Update to redraw the List/Grid view on start so that it fills out the space.
 
 ## 0.91
 
@@ -12,17 +26,37 @@
 
 Fix to Pagination issues calculating incorrectly
 
-Priortize Filter Selection UI responsivness
+Prioritize Filter Selection UI responsiveness
 
 Column resizing now stores manually sized column widths in SessionStorage. Helps across pages and sessions.
 
-## 0.90
-
-Fixes and performance updates to Heirarchical viewing.
-
-## 0.88
+## 0.90 (includes 0.89)
 
 ### Bug Fixes and Enhancements
+
+#### FileViewer
+
+Fixes and performance updates to Hierarchical (related records) viewing.
+
+Paging past 2,000 results now uses cursor-based paging instead of SOQL OFFSET.
+
+When a related-records search produces an id filter too large for Salesforce to query efficiently, the error shown now explains the cause instead of surfacing a raw query exception.
+
+Download Data now builds the CSV as a file blob so large exports download reliably.
+
+The Sharing tab's link table uses fixed column widths so it no longer re-measures columns on every render.
+
+## 0.88 (includes 0.85, 0.86 and 0.87)
+
+### Bug Fixes and Enhancements
+
+#### File Configuration
+
+Conditionally Show Fields When Filtering now has an "Allow No Value" option, so a controlled display field can also show when the controlling field is blank.
+
+#### FileViewer
+
+In List view the record edit pane stays hidden until the user opens it.
 
 #### Enhanced Upload
 
@@ -50,9 +84,9 @@ Retry button appears for attempting to reload previews if they fail to load.
 
 ### Bug Fix
 
-#### FileTaxonmy Uploader for Flows
+#### File Upload & Tagger For Flows
 
-Fixed issue where when using the delete button on uploaded files would would result in a state where no further actions could be completed. Now removing the files, will reinitialize the process.
+Fixed issue where when using the delete button on uploaded files would result in a state where no further actions could be completed. Now removing the files, will reinitialize the process.
 
 Added a helper button to bulk remove files that failed secondary validation (flows/apex/processes).
 
@@ -152,7 +186,7 @@ File Reporting - When reporting against object is Library (ContentWorkspace) The
 
 FileViewer Mobile view - When displaying File Viewer on Salesforce Mobile - the form factor has been laid out with accordion sections and top level buttons in an attempt to make the experience more manageable.
 
-The component File Upload & Tagger For Flows now has an input attribute named "3. Configuration: Dynamic Field Values" where a flow designer can construct a String of JSON to pass ContentVersion Field names and their values to have the uploader use them on initilization. [Dynamic Value Documentation](flow-dynamic-values.md)
+The component File Upload & Tagger For Flows now has an input attribute named "3. Configuration: Dynamic Field Values" where a flow designer can construct a String of JSON to pass ContentVersion Field names and their values to have the uploader use them on initialization. [Dynamic Value Documentation](flow-dynamic-values.md)
 
 ### Fixes
 
@@ -299,7 +333,7 @@ Component override for delete option on FW images
   - Manage Salesforce Enhanced Content (Notes, Enhanced Notes)
   - Search for and tag notes with your own custom picklist fields
   - Convert Notes to PDF to share externally
-  - Add Notes component to any record layout to help users access, ammend, and keep notes current for the record.
+  - Add Notes component to any record layout to help users access, amend, and keep notes current for the record.
   - Notes are automatically versioned - see what changed between versions and even roll back by promoting an older version.
 
 ### Enhancements
@@ -310,7 +344,7 @@ Component override for delete option on FW images
 ## 0.52/0.53
 
 - File Events Integration
-    - Control your businsess processes with File Event Flow Support. Create flows using our flow templates to start automating processes around uploading, editing, deleting, changing content document links and more. Unleash the power of flows to have files finish out your business processes.
+    - Control your business processes with File Event Flow Support. Create flows using our flow templates to start automating processes around uploading, editing, deleting, changing content document links and more. Unleash the power of flows to have files finish out your business processes.
 
 ## 0.51
 
@@ -325,7 +359,7 @@ Component override for delete option on FW images
 - File Searching Issue
     - Addressed issue where Text Area fields were ignored in search parameters.
 - File upload issue
-    - Addressed issue where if the post action is 'Show Results' the updating message would sometimes not stop showing - falsly indicating that the process was incomplete (when it had in fact completed)
+    - Addressed issue where if the post action is 'Show Results' the updating message would sometimes not stop showing - falsely indicating that the process was incomplete (when it had in fact completed)
     - Addressed issue where if the post action is 'Show Results' that the embedded file viewer component would show files outside of the current upload sessions context.
 
 ## 0.48
@@ -350,10 +384,10 @@ Component override for delete option on FW images
 - FileViewer
     - added option to show/hide titles on tile view
     - titles now concatenate the title field with the fileExtension field.
-    - Option provided to hide titles for views (recommmend using the "Record's Content Viewer" component for images only)
+    - Option provided to hide titles for views (recommend using the "Record's Content Viewer" component for images only)
     -
 - Fixed issue where the user's value for a field was not being respected when a default value for a field was set in addition to showing the field in the user interface via the filter fields.
-- Changed default behavior of the file upload components - where the file extentions list is no longer populated. This is inline with Salesforce default behavior. The File Extensions now also support the values of 'any' or 'all' in order to provide support for components that are already on layouts and have the default values set. (Salesforce doesn't allow fully clearing designer values)
+- Changed default behavior of the file upload components - where the file extensions list is no longer populated. This is inline with Salesforce default behavior. The File Extensions now also support the values of 'any' or 'all' in order to provide support for components that are already on layouts and have the default values set. (Salesforce doesn't allow fully clearing designer values)
 -
 ## 0.42
 - Fixed Visual issue with record editor picklists on FileViewer component
@@ -376,7 +410,7 @@ Component override for delete option on FW images
 - File Tagging
     - Reworked screen initialization to only display options once the configuration has downloaded.
 - FileViewer
-    - Design Configuration added show delete option to enable Scalable image ivews
+    - Design Configuration added show delete option to enable Scalable image views
     - Added layout customization to show images and content stacked vertically or horizontally.
 
         <img src="images/releasenotes/v40/fileviewer_horizontal_layout.png" height="120">
@@ -496,12 +530,12 @@ Component override for delete option on FW images
 - Public link generation now gives the ability to set the title, expirations and with password
 - Configuration Wizard - walks you through the process of creating a configuration to use and reuse for your users.
 - Support for Record Types on Content Version - Created a utility to cache Record Types and their picklist values for an admin user. Salesforce doesn't support access to this information without using an API and all users do not have API access - [Please Vote for This Idea](https://ideas.salesforce.com/s/idea/a0B8W00000GdVwoUAF/getting-picklist-values-based-on-record-type)
-- Support to link a document to a library folder in Entity Sharing (Libary folders are not marked as searchable from the Salesforce schema)
+- Support to link a document to a library folder in Entity Sharing (Library folders are not marked as searchable from the Salesforce schema)
 - New experience permission set to avoid having to clone the File Viewer permission set and remove access to the application.
 
 ### Fixes
 - Entity Sharing - correctly resolves names now and doesn't show [object object]
-- Content Viewer - remove loading screen if user does not have acesss to specified record.
+- Content Viewer - remove loading screen if user does not have access to specified record.
 - File Tagging - removed 'Step' verbage if uploading is only step available
 - File Viewer - Tif support for Safari on OSX
 - Home Screen - Detection of new Custom Permissions to aid in erroneous access to links.
@@ -519,7 +553,7 @@ Component override for delete option on FW images
 
 ### What's New
 
-- Flow support Invocable Action To Get Public Links for Documents. Create emails with lists of document links, the benefits of using links over sending files are numerous.  [Flow Actions](features#flow-action-public-links)
+- Flow support Invocable Action To Get Public Links for Documents. Create emails with lists of document links, the benefits of using links over sending files are numerous.  [Flow Actions](fileviewer-and-flow.md#create-and-send-public-links-in-a-flow)
         - Update documents without having to send new files
         - Delete links effectively redacting outdated or incorrect information
         - Password protect links to prevent over sharing and URL replays
@@ -528,7 +562,7 @@ Component override for delete option on FW images
 - Ability to delete files from tabbed viewing controls - accessible through the designer.
 
 - Carousel View - Record's Content Viewer has an alternative to tabs, users can use left/right controls to navigate through files.
-    [Viewer](features#tabbed-viewer)
+    [Viewer](features.md#tabbed-viewer)
 
 
 ### Enhancements

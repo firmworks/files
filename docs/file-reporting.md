@@ -1,11 +1,16 @@
-![](./quickStartImages/fileviewer.png)
-[Documentation](index.md)
+---
+title: "File Reporting"
+description: "Build, save and schedule File Reports to find records with or without the documents they need, and act on the results."
+---
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+
+[Back To Documentation](index.md)
 
 # File Reporting
 
 ## Configuration and Setup
 
-All System Administrator based profiles can see the File Report tab after installation. To allow other users to see the tab you will need to assign them the **FirmWorks Files Reporting** permission set. To assign a permission set please follow the documentation from Salesforce (https://help.salesforce.com/s/articleView?id=sf.perm_sets_assigning.htm).
+All System Administrator based profiles can see the File Report tab after installation. To allow other users to see the tab you will need to assign them the **FirmWorks Files Reporting** permission set, or the **FirmWorks Files Reporter** permission set group (see [Permissions and Licensing](permissions.md)). To assign a permission set please follow the documentation from Salesforce (https://help.salesforce.com/s/articleView?id=sf.perm_sets_assigning.htm).
 
 ## Using Select Reports
 
@@ -24,9 +29,9 @@ Clicking Run Report will return results from your org based on the filters estab
 From here you can save reports, add/remove filters, change the record to return criteria, and interact with result records.
 
 ### Saving Reports
-There are two buttons on the top right of the Reports section will save the current filters. This will start a save event that will commit the report to the database and make it available in the Quick Reports menu.
+There are two buttons on the top right of the Reports section that will save the current filters. This will start a save event that will commit the report to the database and make it available in the Quick Reports menu.
 
-1. Save Report - This will save the report under the existing name. If it  is a new report it will ask you to input a name and a report description.
+1. Save Report - This will save the report under the existing name. If it is a new report it will ask you to input a name and a report description.
 
 1. Save As - This will open the UI to save a new report regardless if the report exists or not.
 
@@ -34,7 +39,7 @@ There are two buttons on the top right of the Reports section will save the curr
 
 ### Adding or Removing Filters
 
-To add a filter to the Selected Object in Step 1, click on the Add a Filter For <Selected Object Label> button on the top right. Once the filter row has been added selected the field from the Field Name selection, choose an Evaluation criteria, and set a value. For more help on supported values click the question mark at the end of the row.
+To add a filter to the Selected Object in Step 1, click on the Add a Filter For <Selected Object Label> button on the top right. Once the filter row has been added, select the field from the Field Name selection, choose an Evaluation criteria, and set a value. For more help on supported values click the question mark at the end of the row.
 
 ![FirmWorks Files Reporting Filters](images/reporting-filters1.png)
 
@@ -48,19 +53,19 @@ Follow the same steps above to add or remove a filter from the tagged documents 
 
 #### Filter Sets
 
-Using Filters sets File Reporting can be even more powerful. A Filter Set represents a set of criteria for a single Salesforce objects or File you want to include in your report.
+Using Filter Sets, File Reporting can be even more powerful. A Filter Set represents a set of criteria for a single Salesforce object or File you want to include in your report.
 
-When used in Section 1 of a report a Filter Set will functions as an additional way of grouping filters on a single object. This allow for more comprehensive filtering using AND and/or OR on your chosen object.
+When used in Section 1 of a report a Filter Set functions as an additional way of grouping filters on a single object. This allows for more comprehensive filtering using AND and/or OR on your chosen object.
 
 When used in Section 2 of a report a Filter Set represents the same thing but there is also another option you can use to track multiple documents as part of a single report. For example, if you wanted to see if an account has both a file tagged as an NDA and a file tagged as an MSA based on a picklist tag field, you would do the following.
 
-First set up a Filter Set where you criteria is Picklist equal to = NDA. Click + Filter Set and add a Second set with the criteria Picklist equal to = MSA. Finally change you operator to And Has. The And Has operator will check for multiple Files for a given object.
+First set up a Filter Set where your criteria is Picklist equal to = NDA. Click + Filter Set and add a Second set with the criteria Picklist equal to = MSA. Finally change your operator to And Has. The And Has operator will check for multiple Files for a given object.
 
 ![FirmWorks Files Reporting Filter Sets And Has](images/reporting/filtersets1.png)
 
 #### Filter Set Evaluation Pattern
 
-You can use this box in a Filter Set to determine how your logic evaluates. If all teh operators between your criteria are the same you can use the drop down to set the operator. If your logic needs to change between nodes you can type your custom logic in the Filter Set Evaluation Pattern box. Once you type logic in this box the Drop down list will disappear since they are no longer relevant. To get them back remove your custom logic.
+You can use this box in a Filter Set to determine how your logic evaluates. If all the operators between your criteria are the same you can use the drop down to set the operator. If your logic needs to change between nodes you can type your custom logic in the Filter Set Evaluation Pattern box. Once you type logic in this box the Drop down list will disappear since they are no longer relevant. To get them back remove your custom logic.
 
 ![FirmWorks Files Reporting Filter Sets Pattern](images/reporting/filtersets2.png)
 
@@ -88,24 +93,33 @@ The buttons in Step 3 will allow you to change the returned record set.
 
 ![FirmWorks Files Reporting Results](images/reporting-download1.png)
 
-- **Schedule Report** - This will allow you to schedule a report to drive business process based ont he returned results. for more see the [Scheduling Reports](#scheduling-reports) section below
+- **Schedule Report** - This will allow you to schedule a report to drive business process based on the returned results. For more see the [Scheduling Reports](#scheduling-reports) section below
 - **Run Report** -  This button will run the report. When clicked it will go retrieve the data set again and capture any new records that should be returned based on the criteria.
 - **Download** - This button will download an Excel sheet with metadata on the Content Version records returned in the Results section.
-- **Download Files** - This button will download a zip file containing all the documents returned in the Results section.
+- **Download Files** - This button will download a zip file containing all the documents returned in the Results section. Files are requested in batches of 800, each as its own zip; a dialog lists the links in case a pop-up blocker stops one.
 - **View Details** - This button will open a new window to that rows Selected Objects Salesforce Record.
+- **Show in FileViewer** - Opens the documents from a result row in the File Search tab, where they can be filtered, tagged and shared.
+
+### Grouped and Details Views
+
+Results can be shown **Grouped**, one row per record of the selected object, or as **Details**, one row per document with the document's tag fields as columns. The Details view is also what the CSV download contains, so include the file fields you need in Step 2 to see them in the export. The File Report Results component can default to either view.
+
+### Reporting on Libraries
+
+When the selected object is Library (ContentWorkspace), the Details view adds Content Folder Path, Content Folder Name and Content Folder Id so library administrators can see where each file sits. Salesforce does not provide a link to a folder, so these columns are the way to locate one.
 
 ## Scheduling Reports
 
 ### Basic Scheduling
-Scheduling reports will allow a report to be run regularly and post platform event/ To learn more about which Salesforce technology can subscribe to platform events please see the following Salesforce Article, https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_subscribe.htm.
+Scheduling reports will allow a report to be run regularly and post a platform event. To learn more about which Salesforce technology can subscribe to platform events please see the following Salesforce Article, https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_subscribe.htm.
 
 To start click the Schedule Reports button to access the scheduling UI. This UI will open the scheduling UI for the current report but will also allow you to set Schedules for all the save reports in the org.
 
 ![FirmWorks Files File Report Scheduling](images/reporting-scheduling1.png)
 
 - Frequency: There are two options for Frequency, Monthly and Weekly.
-- Days: This is a multi-select list aht lets you pick one or more days for the schedule to run on.
-- Start At: This is the time the schedule should run at the frequency and days your chose previously.
+- Days: This is a multi-select list that lets you pick one or more days for the schedule to run on.
+- Start At: This is the time the schedule should run at the frequency and days you chose previously.
 
 At this point you can click Create Schedule to generate a scheduled job for the report with the setting you choose. You can generate more than one scheduled job for a report if needed.
 
@@ -117,18 +131,18 @@ The Advanced button in the scheduling UI allows a user to input their own cron e
 
 ## Using Flows to Automate Action From on Scheduled Reports.
 
-Scheduling a File Report results in a Platform event being published for each returned from the report. You can subscribe to these event by using a Platform event triggered flow. To setup a Platform Event Triggered Flow use the Salesforce documentation here https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_subscribe_flow.htm. When asked which platform event you
+Scheduling a File Report results in a Platform event being published for each returned from the report. You can subscribe to these events by using a Platform event triggered flow. To setup a Platform Event Triggered Flow use the Salesforce documentation here https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_subscribe_flow.htm. When asked which platform event you
 want to choose select File Report Event as seen below.
 
 ![FirmWorks Files File Report Scheduling with Flow](images/reporting-scheduling-flow1.png)
 
-The File Report Event allows access to teh follow information fo use with the flow:
+The File Report Event allows access to the following information for use with the flow:
 
 ![FirmWorks Files File Report Scheduling with Flow](images/reporting-scheduling-flow2.png)
 
-- Event Type: This value is currently set to "Report" to indicate where the vent was sourced from. It may be updated with new values in teh future.
+- Event Type: This value is currently set to "Report" to indicate where the event was sourced from. It may be updated with new values in the future.
 
-- Message: This Field will be populate with any system error messages that happen
+- Message: This field will be populated with any system error messages that happen
 
 - Number of Documents: This is the Number of Document associated with the record that was returned from the report for this Platform event. If the report is set up to return records without documents this will be 0.
 
@@ -142,17 +156,27 @@ The File Report Event allows access to teh follow information fo use with the fl
 
 - Status: Blank unless there is an issue.
 
-These files are available from teh REcord object when using the elements in a flow. Generally, using the Source Id(s) field to get records to update is a good way to go. Some use cases are:
+These fields are available from the Record object when using the elements in a flow. Generally, using the Source Id(s) field to get records to update is a good way to go. Some use cases are:
 
 - Updating a field on a record when a document exists or does not exist.
 
 - Creating a Task or Chatter on the Source Id(s) record to alert the owner action is needed.
 
-Alternatively you can also use the [FIle Report Runner for Records](#file-report-runner-for-records)
+Alternatively you can also use the [File Report Runner For Records](component-reference.md#file-report-runner-for-records)
+
+## Running Reports from FileViewer
+
+A [FirmWorks Files Configuration](configuration.md#step-4-filtering) can add a Reports button to FileViewer's search panel. Users pick a saved report, run it, and the report's documents become the search results, which they can then filter further, tag, share or download. The configuration chooses which saved reports are offered.
+
+## Reports in Flows
+
+- **File Report Runner For Flow Records** shows a record's compliance on a flow screen and can block Next or Finish until the report passes. See [FirmWorks Files and Flows](fileviewer-and-flow.md#file-report-runner-for-flow-records).
+- **File Report Results** on a flow screen takes a list of record Ids in **4. Data: Run for these Record Ids**, for example every Contact on an Account, and shows which are missing documents.
+- **Get FirmWork's File Report Results** is an invocable action that returns whether one record is in a report's results, for use in any flow without a screen. See [Flow Templates and Invocable Actions](flow-templates-and-actions.md#get-firmworks-file-report-results).
 
 ## Creating Custom Reports
 
-Instead of using Quick Reports, a custom report can be created to store reports for specific business needs. To create a new report choose an object from the Select Object section in Step 1. Next add filters to that object and the docmuents you want to see in Step 2 and Step 3, respectively. Then choose which results you want to return in Step 4 and click Run Report.
+Instead of using Quick Reports, a custom report can be created to store reports for specific business needs. To create a new report choose an object from the Select Object section in Step 1. Next add filters to that object and the documents you want to see in Step 2 and Step 3, respectively. Then choose which results you want to return in Step 4 and click Run Report.
 
 ![FirmWorks Files Reporting Custom Report Creation](images/reporting-custom-reports1.gif)
 
