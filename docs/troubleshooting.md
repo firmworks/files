@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 description: "Fixes for common FirmWorks Files problems, organized by symptom."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 

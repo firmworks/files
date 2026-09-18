@@ -2,7 +2,7 @@
 title: "Component Reference"
 description: "Every FirmWorks Files Lightning component, where it can be placed, and each setting with its App Builder label."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 

@@ -2,7 +2,7 @@
 title: "File Events"
 description: "Platform events for Content Document, Content Version and Content Document Link changes, and how to build flows on them."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 

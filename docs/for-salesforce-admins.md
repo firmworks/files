@@ -2,7 +2,7 @@
 title: "For Salesforce Administrators"
 description: "What FirmWorks Files gives administrators: search, tagging, viewers, sharing, reporting, Notes, configuration and security."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
