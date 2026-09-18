@@ -2,7 +2,7 @@
 title: "The Life of a File"
 description: "How FirmWorks Files supports a file from upload through tagging, searching, viewing, sharing and auditing."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

@@ -2,7 +2,7 @@
 title: "Dynamic Field Values in Flows"
 description: "Build the JSON that presets tag and filter values on FirmWorks Files flow components."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

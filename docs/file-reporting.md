@@ -2,7 +2,7 @@
 title: "File Reporting"
 description: "Build, save and schedule File Reports to find records with or without the documents they need, and act on the results."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

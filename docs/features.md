@@ -2,7 +2,7 @@
 title: "Features"
 description: "An overview of FirmWorks Files features: tagging, search, viewing, sharing, Enhanced Upload, reporting, Notes and flows."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

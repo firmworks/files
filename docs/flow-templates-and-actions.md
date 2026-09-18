@@ -2,7 +2,7 @@
 title: "Flow Templates and Invocable Actions"
 description: "The six packaged flow templates and four invocable actions, with their inputs and outputs."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

@@ -2,7 +2,7 @@
 title: "Permissions and Licensing"
 description: "Package licenses, permission sets and groups, custom permissions, license-controlled features, and Experience Cloud user requirements."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

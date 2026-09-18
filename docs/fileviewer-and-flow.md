@@ -2,7 +2,7 @@
 title: "FirmWorks Files and Flows"
 description: "Tag and upload files, validate documents and send public links from Salesforce Flows."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 # FirmWorks Files and Flow

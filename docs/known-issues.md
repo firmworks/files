@@ -2,7 +2,7 @@
 title: "Tips and Known Issues"
 description: "Known limitations, and tips on permissions, preview quality, file sharing and the Salesforce Files object model."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

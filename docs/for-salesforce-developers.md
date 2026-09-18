@@ -2,7 +2,7 @@
 title: "For Salesforce Developers"
 description: "How FirmWorks Files fits a developer toolkit: standard objects, File Events, invocable actions, flow components and deployable configuration."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

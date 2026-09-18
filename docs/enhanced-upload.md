@@ -2,7 +2,7 @@
 title: "Enhanced Upload"
 description: "Upload thousands of files at once with duplicate detection, versioning, size limits and progress, plus requirements and setup."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

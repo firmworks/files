@@ -2,7 +2,7 @@
 title: "Grant FirmWorks Support Access"
 description: "How to grant FirmWorks Support login access to your Salesforce org, and what FirmWorks will never ask for."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

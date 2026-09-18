@@ -2,7 +2,7 @@
 title: "Quick Start Guide"
 description: "Install, license and set up FirmWorks Files: permissions, the Tag & Upload action, components on record pages, and tag fields."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

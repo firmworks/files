@@ -2,7 +2,7 @@
 title: "FirmWorks Notes"
 description: "Tagged, searchable notes built on Salesforce Enhanced Notes, with version compare, restore and PDF conversion."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 [Back To Documentation](index.md)
 

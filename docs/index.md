@@ -2,7 +2,7 @@
 title: "FirmWorks Files Documentation"
 description: "Documentation for FirmWorks Files, the native Salesforce application for storing, tagging, finding and sharing files."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="200"/>
+<img src="images/firmworksfiles.svg" alt="FirmWorks Files" height="100"/>
 
 # FirmWorks Files
 
