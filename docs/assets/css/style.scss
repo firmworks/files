@@ -35,8 +35,8 @@
 // left-aligned so the title is visible without scrolling. The SVG is square.
 #main_content img[src$="firmworksfiles.svg"] {
   display: inline-block;
-  width: 64px;
-  height: 64px;
+  width: 128px;
+  height: 128px;
   max-width: none;
   margin: 0 0 4px 0;
 }
