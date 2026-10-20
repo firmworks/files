@@ -2,11 +2,99 @@
 title: "Release Notes"
 description: "What changed in each FirmWorks Files release."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
 # FirmWorks Files Release Notes
+
+## 2.1 (includes 0.93, 0.94 and 0.95)
+
+### Lightning Web Components
+
+Every placeable component was rebuilt as a Lightning Web Component and appears in App Builder, Experience Builder and Flow Builder under its plain name: FirmWorks File Manager, File Tagger, File Tagger Button, Record Reporter, Content Viewer, Single Content Record Viewer, File Report Results, FirmWorks Notes and FirmWorks Files Home. The File Search, Note Manager and FirmWorks Files Home tabs now use them, and the File Report builder shows its results through File Report Results. The Aura components still ship and keep working but are retired, and their palette labels now start with ~DEPRECATED~. Every component has a new icon in the palette. See [Upgrading to Lightning Web Components](component-tools.md).
+
+- Each Flow screen component has a custom property editor with a **Use a Flow resource** toggle per setting. A setting can be bound to a variable, formula or constant, to a text template for text settings, or to a component on the same screen whose value or output has the same type.
+- Flow screen settings marked **\*REACTIVE\*** in their help update the component in place when the bound value changes, so File Tagger reloads its configuration, Record Reporter runs its report again and File Manager and Content Viewer fetch files again without leaving the screen. See [Reactive settings](fileviewer-and-flow.md#reactive-settings).
+- Record Reporter's result messages on a Flow screen accept a text template, so a validation error can include merge fields.
+- The new File Tagger replaces both the Aura File Tagger and File Upload & Tagger For Flows; Record Reporter replaces both File Report Runner components.
+- Default Upload Mode value `BatchUpload` is now `EnhancedUpload`.
+- Components on a page coordinate through a new Lightning message channel, FirmWorks Files Application State.
+- The packaged Upload and Validate flow template references the LWC components.
+
+### Component Tools
+
+A new **FirmWorks Files Component Tools** tab inventories every Lightning page, flow screen, quick action and custom tab that still places a retired Aura component, shows the LWC replacement and how each setting carries over, and replaces pages and flows in place with per-row Undo and optional flow activation. Requires the new **FirmWorks Files Component Tools** permission set plus View Setup and Configuration, Customize Application and API Enabled.
+
+### Files Dashboard
+
+A new **FirmWorks Files Dashboard** tab, second in the app, shows file and data storage, license seats and expiry, permission set assignments, configurations, custom reports, scheduled reports, file automations, custom taxonomy fields, untagged files, Lightning pages with FirmWorks components and remaining Aura placements. Every tile links to where it is managed. Granted by the Configurator, Reporting and Component Tools permission sets. See [Files Dashboard](files-dashboard.md).
+
+### File Manager
+
+- **Bulk actions.** A **Select Files to…** button loads the whole result set into a selector with search, column filters, shift-click, drag, keyboard, undo and redo. Tabs: Edit fields (including multi-select Replace/Add/Remove, text find and replace, and Revert), Related records (link, unlink, change owner), Public links (create with expiry presets and optional password, remove, copy for email), Download and Delete. Enabled per configuration in Step 11: Actions. The actions menu that previously held Download Data, Create Public Links and Show Untagged Files is replaced by these tabs. See [Bulk Actions](bulk-actions.md).
+- On the Related records tab, **Link selected relationships** links records already linked to some of the selected files to the rest of the selection.
+- **Refine** opens the same selector to hand-pick files from a search.
+- **Versions tab** on each file with a viewer and download per version, and **Prune version history** when allowed.
+- Numeric filters with operators and Between; date filters with operators and Salesforce date literals; **Advanced** mode with Criteria / Is Null / Not Null per filter and **Search All Null Values**.
+- Large text fields load as 255-character previews with **Load full text** on demand.
+- **Remember Layout** replaces Auto Save Layout. Settings are grouped as Appearance, Detail Tabs and Fields.
+- Outlook .msg files preview their message details.
+- Available as a record action.
+- **Read-only files.** With the new **Check Record Access** configuration setting, files the user cannot edit are marked with a lock as results load: forms open read only, grid rows do not enter edit mode, Delete and Prune are hidden, the Sharing tab hides Share with and Change Owner, and bulk actions skip the files with a count shown before the run. The retired FileViewer gets the read-only forms and hidden Delete too. The check also works for users whose profile cannot read permission set assignments. See [Read-only files](component-appendix.md#read-only-files).
+
+### Configurator
+
+- A configuration list on the left with Active / Inactive / All scope, filter, clone and links to Setup.
+- **Where This Configuration Is Used** lists the pages, flows and quick actions that reference a configuration, and the tabs and record pages that select it by name.
+- Relationship picker for Searching Related paths; drag-to-reorder field pickers.
+- New settings: Allow Bulk Delete, Allow Bulk Edit Fields, Allow Bulk Related Records, Allow Bulk Owner Change, Allow File Level Versions Tab, Allow Prune Version History.
+- **Check Record Access** in Step 11: Actions, on for new configurations, resolves each file's edit, delete and transfer access as a page loads. Configurations saved before it existed are off until re-saved with it on.
+- **Describing Field** and **Describing Field Position** in Image Settings choose the text shown with each item in Content Viewer.
+- A configuration saves after every Content Link Entity is removed; before, the save failed with "Expected List<String> but found".
+
+### File Reporting
+
+- **Include View Statistics** adds public link counts, views, downloads and dates to the Details view and export.
+- Saved reports have a Report Title and an immutable **Report Identifier** with Use suggested, Copy and duplicate detection.
+- Date filter values accept Salesforce date literals, specific dates and custom SOQL; picklist In, Not In, Includes and Excludes use a value picker.
+- Evaluation patterns are validated with specific messages, and AND / OR buttons rewrite a pattern.
+- Edit columns, Copy SOQL, "(unsaved changes)" indicator and a Scheduled Reports list.
+- Results are shown by the new File Report Results grid: Refresh and Stop Running, Grouped and Details views remembered per report, sortable columns with record and document links, Pages or Scroll with a Results Per Page choice, and an actions menu with Download Data, Download Current Page, Download Files and Show In FileViewer. CSV downloads are named after the report and open directly in Excel. Run Report is disabled while a run is in progress.
+- **Download Data With Note Contents** exports a Details view that includes notes with a Note Contents column holding each note's text, line breaks kept. See [Exporting notes with their tags](notes.md#exporting-notes-with-their-tags).
+- The Get Public Links For Files action now fails with "Insufficient Access To Referenced File" when the running user cannot read the files, instead of returning nothing.
+
+### Content Viewer
+
+New **Default Page Size** and **Show Title Bar** settings; now available on App and Home pages. Single Content Record Viewer is now exposed in App Builder.
+
+- **Describing Field** shows the value of a text or rich text field on the file, such as Description, with each item, and the filter box becomes **Filter by title or text**. **Describing Field Position** puts the text above the file, below it, or on a flip side reached by a rotate button in the title bar. Three lines show at first, with **Show more**. Both settings are also available in a configuration's Image Settings and on Flow screens.
+- The pager now also appears when the list is longer than the configured page size.
+
+### File Report Results
+
+A new component replacing the Aura File Report Results on record, App, Home and Experience pages, Flow screens and tabs, with the same settings plus **Background Color** and **Rows Per Page**. On a Flow screen its settings have a property editor, Title, Background Color, Max Height, Report Name and Run for these Record Ids are reactive, Run for these Record Ids takes a text template, and the new **Report Result** output is the number of records returned. Component Tools migrates existing placements. What the grid does is listed under File Reporting above.
+
+### FirmWorks Notes
+
+Rebuilt as a Lightning Web Component: explorer and editor in one frame, Auto Save toggle, @mention record linking, **Component Height** setting.
+
+- Available as a utility item in an app's utility bar, with the configuration name and Component Height as settings. See [Notes on a record page or in the utility bar](notes.md#notes-on-a-record-page-or-in-the-utility-bar).
+
+- With **Check Record Access** on, a note the user cannot edit opens read only with a notice, and Delete is left out of the menu when they cannot delete it.
+- Note text with tags exports to CSV through File Reports; see File Reporting above.
+
+### Enhanced Upload
+
+Rebuilt with a bounded queue (three files at a time), removable queued rows, a per-file timeout, and tags written with each insert. New **Delete Files With Errors** action.
+
+### Permissions
+
+New custom permission and permission set **FirmWorks Files Component Tools**. The Configurator and Reporting permission sets now grant the Files Dashboard. Permission set groups are unchanged.
+
+### Languages
+
+Over 1,100 new labels translated into Spanish, Spanish (Mexico) and French.
 
 ## 0.92
 
@@ -399,12 +487,12 @@ Component override for delete option on FW images
 - File Report Result
     - Added menu action to show files in FileViewer component
 
-        <img src="images/releasenotes/v40/filereport_showinfileviewer.gif" height="120">
+        <img src="images/release-notes/filereport_showinfileviewer.gif" height="120">
 
     - Added support to use component in flows
         - Added property to pass a list of Records to evaluate "4. Data: Run for these Record Ids" This supports the ability of using a flow to run a report on related items. For example - from an account layout show all of the related contacts that are missing an NDA on their record.
 
-           <img src="images/releasenotes/v40/filereport_flowsupport.png" height="120">
+           <img src="images/release-notes/filereport_flowsupport.png" height="120">
 
     - When including lookup fields in the report - now pulls the name field to build a hyperlink.
 - File Tagging
@@ -413,7 +501,7 @@ Component override for delete option on FW images
     - Design Configuration added show delete option to enable Scalable image views
     - Added layout customization to show images and content stacked vertically or horizontally.
 
-        <img src="images/releasenotes/v40/fileviewer_horizontal_layout.png" height="120">
+        <img src="images/release-notes/fileviewer_horizontal_layout.png" height="120">
 ### Fixes
 - File Configuration Editor
     - Changed navigation bar to allow for small screen wrapping
@@ -660,6 +748,6 @@ Component override for delete option on FW images
 
 - You will no longer see the follow error when editing a page with a File Viewer Component:
 
-![FirmWorks Files 11 Configuration Name Error](images/11-configuration-name-error.png)
+![FirmWorks Files 11 Configuration Name Error](images/release-notes/11-configuration-name-error.png)
 
 

@@ -2,7 +2,7 @@
 title: "Flow Templates and Invocable Actions"
 description: "The six packaged flow templates and four invocable actions, with their inputs and outputs."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -28,7 +28,7 @@ Templates appear in Setup > Flows under the **Templates** tab. Open one, **Save 
 | FirmWorks Content Version Event Flow Template | Platform event triggered on Content Version Event | Applies a file naming convention and branches on tags (file type, description, first version). Ships intentionally incomplete so you must finish the loop before activating. |
 | FirmWorks File Report Event Flow Template | Platform event triggered on File Report Event | Compares the event's Report Name to an input variable and shows two reactions: send an email to the record owner, or post to Chatter on the record. |
 | FirmWorks Files Public Link Creation and Send Flow Template | Autolaunched subflow with a `recordId` input | Creates password-protected public links for a record's files that expire in 10 days, builds an HTML list of links, and emails it. Call it from another flow. |
-| FirmWorks Files Upload and Validate Screen Flow Template | Screen flow | One screen with File Report Runner For Flow Records above File Upload & Tagger For Flows, so users see what is missing while they upload. Inputs: `recordId`, `varFWFConfigurationName`, `varFWFReportName`. |
+| FirmWorks Files Upload and Validate Screen Flow Template | Screen flow | One screen with Record Reporter above File Tagger, so users see what is missing while they upload. Inputs: `recordId`, `varFWFConfigurationName`, `varFWFReportName`. |
 
 Before activating a copy:
 
@@ -71,7 +71,7 @@ Output: **Links**, a collection with one entry per file:
 | Content Download Url | A direct download link. Blank when the link is password protected. |
 | Expires On | The expiration date/time. |
 
-The action fails with "Public links are not supported" if Content Deliveries are disabled in the org, and with "Invalid Configuration Name" if the configuration does not exist.
+The action fails with "Public links are not supported" if Content Deliveries are disabled in the org, with "Invalid Configuration Name" if the configuration does not exist, and with "Insufficient Access To Referenced File" if the running user cannot read any of the files.
 
 ### Get FirmWork's File Report Results
 

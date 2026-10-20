@@ -2,7 +2,7 @@
 title: "Additional Setup"
 description: "Adding tabs to apps, creating tabs, placing components on record pages, and setting up Experience Cloud."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -18,25 +18,25 @@ Setup tasks beyond the [Quick Start Guide](quick-start.md): adding tabs to apps,
 
 ## Adding the FirmWorks Files tabs to an app
 
-The package includes a **FirmWorks Files** app with five tabs: FirmWorks Files Home, File Search, Note Manager, File Report and FirmWorks Files Configurator. To add any of these tabs to another app:
+The package includes a **FirmWorks Files** app with six tabs: FirmWorks Files Home, FirmWorks Files Dashboard, File Search, Note Manager, File Report and FirmWorks Files Configurator. A seventh tab, FirmWorks Files Component Tools, is not in the app and is reached from the App Launcher by users with its permission set. To add any of these tabs to another app:
 
 1. Setup > App Manager > find the app > **Edit**.
 
-   ![App Manager](images/tab-setup1.png)
+   ![App Manager](images/advanced-config/tab-setup1.png)
 
 2. Choose **Navigation Items**, move the tab from Available Items to Selected Items, and save.
 
-   ![Navigation items](images/tab-setup2.png)
+   ![Navigation items](images/advanced-config/tab-setup2.png)
 
 ## Creating a new tab
 
 You can build your own tab around a FirmWorks Files component, for example a File Search tab that uses a specific configuration.
 
 1. Setup > Tabs > Lightning Component Tabs > **New**.
-2. Choose the component: `firmworks:FileViewer` for search and viewing, or `firmworks:FileTaxonomyLauncher` for a Tag and Upload button.
+2. Choose the component: `firmworks:fileManager` for search and viewing, `firmworks:contentNotesManager` for notes, `firmworks:filesDashboard` for the dashboard or `firmworks:filesHome` for the landing page. A Tag and Upload button tab uses the Aura `firmworks:FileTaxonomyLauncher`, which is still supported for tabs.
 3. Give the tab a label and name, then choose which profiles and apps see it.
 
-![Lightning Component Tab](images/custom-tab-setup1.png)
+![Lightning Component Tab](images/advanced-config/custom-tab-setup1.png)
 
 A configuration named with the tab's API name becomes that tab's default configuration. See [Configuration naming](configuration.md#step-2-name).
 
@@ -46,18 +46,17 @@ Open the Lightning record page in Lightning App Builder and drag the component f
 
 | Component | Use it for |
 |---|---|
-| [FileViewer](component-reference.md#fileviewer) | Searching, viewing, tagging, sharing and downloading a record's files. |
-| [File Tagger Button For Upload](component-reference.md#file-tagger-button-for-upload) | A button that opens the Tag and Upload screen. Compact. |
-| [File Tagger](component-reference.md#file-tagger) | The Tag and Upload screen directly on the page. Also the Tag & Upload quick action. |
+| [FirmWorks File Manager](component-reference.md#firmworks-file-manager) | Searching, viewing, tagging, sharing, bulk actions and downloading a record's files. |
+| [File Tagger Button](component-reference.md#file-tagger-button) | A button that opens the Tag and Upload screen. Compact. |
+| [File Tagger](component-reference.md#file-tagger) | The Tag and Upload screen directly on the page. |
 | [Single Content Record Viewer](component-reference.md#single-content-record-viewer) | Showing one specific file. |
-| [Record's Content Viewer](component-reference.md#records-content-viewer) | Showing all of a record's files as tabs, a carousel or tiles. |
-| [Content Viewer (LWC)](component-reference.md#content-viewer-lwc) | The same, as a Lightning Web Component. |
+| [Content Viewer](component-reference.md#content-viewer) | Showing all of a record's files as tabs, a carousel or tiles. |
 | [File Report Results](component-reference.md#file-report-results) | Showing a saved File Report's results. |
-| [File Report Runner For Records](component-reference.md#file-report-runner-for-records) | Telling users whether this record is compliant with a File Report. |
+| [Record Reporter](component-reference.md#record-reporter) | Telling users whether this record is compliant with a File Report. |
 | [Download Records Files](component-reference.md#download-records-files) | A button to download all of the record's files. |
 | [FirmWorks Notes](component-reference.md#firmworks-notes) | Notes linked to the record. |
 
-Repeat for each object's record pages where FirmWorks Files is used. Standard component visibility rules apply to all of them.
+Repeat for each object's record pages where FirmWorks Files is used. Standard component visibility rules apply to all of them. Pages built before 2.1 carry the Aura versions of these components; the [Component Tools](component-tools.md) tab lists them and replaces them in place.
 
 ## FirmWorks Files Configurations
 
@@ -77,9 +76,9 @@ Give external users a package license and the **FirmWorks_Files_ExperienceUser**
 
 1. Open Experience Builder and navigate to the page.
 2. Open the Components panel and scroll to **Custom Components**.
-3. Drag **FileViewer**, **File Tagger Button For Upload**, **Record's Content Viewer**, **Content Viewer (LWC)**, **File Report Results**, **File Report Runner For Records** or **Download Records Files** onto the page.
+3. Drag **FirmWorks File Manager**, **File Tagger Button**, **File Tagger**, **Content Viewer**, **File Report Results**, **Record Reporter**, **FirmWorks Notes** or **Download Records Files** onto the page.
 
-![Experience Builder](images/experience-setup1.png)
+![Experience Builder](images/advanced-config/experience-setup1.png)
 
 4. Set **Record Id** to `{!recordId}` on record detail pages. Experience components do not receive the record Id automatically.
 5. Choose a **Configuration: Name** rather than filling in the component's field settings, or name a configuration in lower case after the object (for example `account`) to make it the default for that object's detail page.

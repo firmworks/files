@@ -2,13 +2,13 @@
 title: "Dynamic Field Values in Flows"
 description: "Build the JSON that presets tag and filter values on FirmWorks Files flow components."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
-# Passing Values Into the "File Upload & Tagger For Flows" component
+# Passing Values Into the File Tagger component
 
-The **3. Configuration: Dynamic Field Values** setting on File Upload & Tagger For Flows takes a JSON string of Content Version field API names and values, and presets those tags when the screen loads. FileViewer's **5. Dynamic Configuration: Dynamic Filter Values** setting accepts the same JSON to preset filter values. This page explains how to build the JSON in a flow formula.
+The **3. Configuration: Dynamic Field Values** setting on File Tagger and File Tagger Button takes a JSON string of Content Version field API names and values, and presets those tags when the screen loads. File Manager's **5. Dynamic Configuration: Dynamic Filter Values** setting accepts the same JSON to preset filter values, with extra forms for numeric and date filters described in [Presetting filters in File Manager](#presetting-filters-in-file-manager). This page explains how to build the JSON in a flow formula.
 
 ## Prepare a valid JSON string using a Text formula
 
@@ -41,7 +41,7 @@ becomes
 
 {"Checkbox_Field__c":"true","DateTime_Field__c":"2026-06-01T12:40:00.00Z"}
 ```
-![Image of flow formula](images/flows/dynamic_values/flow_formula.png)
+![Image of flow formula](images/flow-dynamic-values/flow_formula.png)
 
 
 There are limitations of the type of JSON being represented by Salesforce flows using this method - namely it can not represent numbers and booleans as non string values.
@@ -66,18 +66,31 @@ There are limitations of the type of JSON being represented by Salesforce flows 
 
 On the component find "3. Configuration: Dynamic Field Values" from the resource list choose your JSON formatted string resource.
 
-![Image of setting component attribute](images/flows/dynamic_values/flow_component_set_attribute.png)
+![Image of setting component attribute](images/flow-dynamic-values/flow_component_set_attribute.png)
+
+## Presetting filters in File Manager
+
+File Manager's **5. Dynamic Configuration: Dynamic Filter Values** takes the same JSON to select filter values when the component loads. Picklist, checkbox, lookup and text filters take the value forms in the table above. Numeric and date filters also accept an object with an operator:
+
+| Filter | Value forms |
+|---|---|
+| Number, currency, percent | A number for equals: `{"Amount__c": 100}`. Or an object: `{"Amount__c": {"operator":"between","from":100,"to":500}}` or `{"Amount__c": {"operator":"greater-than-equal","value":100}}`. Operators: `equals`, `not-equal`, `less-than`, `less-than-equal`, `greater-than`, `greater-than-equal`, `between`. |
+| Date, date/time | An ISO date for equals: `{"Signed_On__c": "2026-01-15"}`. Or an object with a SOQL date literal: `{"Signed_On__c": {"operator":"greater-than-equal","date_literal":"LAST_N_DAYS:30"}}`, or a range: `{"Signed_On__c": {"operator":"between","from":"2026-01-01","to":"2026-03-31"}}`. |
+
+In a flow formula the same quoting rules apply: wrap the whole object in single quotes and keep the inner double quotes.
 
 ## Set the component refresh cycle
 
-If your flow allows the recalculation of values through navigation (going back/previous step). The component will not update with the new values unless it is set to "refresh inputs to incorporate changes elsewhere in the flow" from the Advanced section.
+**3. Configuration: Dynamic Field Values** and **5. Dynamic Configuration: Dynamic Filter Values** are [reactive settings](fileviewer-and-flow.md#reactive-settings). Bound to a formula or component on the same screen, they update the tag values or the filters as that value changes, with no extra setup.
 
-![Image of advanced refresh](images/flows/dynamic_values/flow_advanced_refresh.png)
+If the JSON is built on an earlier screen and your flow lets the user go back and change it, the component will not pick up the new value unless it is set to "refresh inputs to incorporate changes elsewhere in the flow" from the Advanced section.
+
+![Image of advanced refresh](images/flow-dynamic-values/flow_advanced_refresh.png)
 
 ## Troubleshooting
 
-Error in component - Dynamic Field Error: Dynamic Field Values: Invalid Fields Detected
-![](images/flows/dynamic_values/component_error_invalid_fields.png)
+Error in component - Dynamic Field Values: Invalid Fields Detected
+![](images/flow-dynamic-values/component_error_invalid_fields.png)
 
 A check is performed to ensure that the JSON is properly formatted and that the fields specified exist on the ContentVersion object. Salesforce security guidelines prohibit reflecting user values back as an XSS vulnerability.
 

@@ -2,7 +2,7 @@
 title: "Permissions and Licensing"
 description: "Package licenses, permission sets and groups, custom permissions, license-controlled features, and Experience Cloud user requirements."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -14,6 +14,7 @@ Everything a user needs before a FirmWorks Files component will work for them: a
 - [Permission set groups](#permission-set-groups)
 - [Permission sets](#permission-sets)
 - [Custom permissions](#custom-permissions)
+- [Files Dashboard and Component Tools access](#files-dashboard-and-component-tools-access)
 - [License-controlled features](#license-controlled-features)
 - [Experience Cloud users](#experience-cloud-users)
 - [Record types on Content Version](#record-types-on-content-version)
@@ -46,8 +47,9 @@ Use individual permission sets when a group grants more than you want.
 | Permission set | Label in Setup | Grants |
 |---|---|---|
 | FileViewer | FirmWorks Files | The FirmWorks Files app, the FirmWorks Files Home and File Search tabs, all viewer, tagging, upload, sharing and download classes, the Browser Viewer and Batch File Support pages, and read access to the FirmWorks Files Configuration, Report Configuration and Content Record Type Mapping metadata types. |
-| FileViewer_Configurator | FirmWorks Files Configurator | The FirmWorks Files Configurator tab, configuration deployment classes, and the Record Type utility page. |
-| FileViewer_Reporting | FirmWorks Files Reporting | The File Report tab, report building, scheduling and batch classes, and create access to the File Report Event. |
+| FileViewer_Configurator | FirmWorks Files Configurator | The FirmWorks Files Configurator and FirmWorks Files Dashboard tabs, configuration deployment classes, the Configuration References check, and the Record Type utility page. |
+| FileViewer_Reporting | FirmWorks Files Reporting | The File Report and FirmWorks Files Dashboard tabs, report building, scheduling and batch classes, and create access to the File Report Event. |
+| FileViewer_Component_Tools | FirmWorks Files Component Tools | The FirmWorks Files Component Tools and FirmWorks Files Dashboard tabs and the pages they read metadata through. Not in any permission set group; assign it directly to the administrators who migrate Aura placements. They also need View Setup and Configuration, Customize Application and API Enabled. See [Upgrading to Lightning Web Components](component-tools.md#prerequisites). |
 | FileViewer_Experience | FirmWorks Files - Experience User | The classes and pages an external user needs for FileViewer, File Tagger Button For Upload, Record's Content Viewer, File Report Runner For Records, File Report Results, Enhanced Upload and the Browser Viewer. Does not grant the app or the Configurator. |
 | NoteViewer | FirmWorks Notes User | The Note Manager tab, the Notes classes, and read access to the FirmWorks Notes Event. |
 | EV_FileEvents | FirmWorks File Events | The Content Apex Trigger Setting metadata type, the three file platform events, and the two deleted-document invocable actions. |
@@ -64,8 +66,21 @@ The package uses custom permissions to decide what to show, not to secure data. 
 | FileViewer_Configurator | FirmWorks Files Configurator | FirmWorks Files Configurator |
 | FileViewer_Reporting | FirmWorks Files Reporting | FirmWorks Files Reporting |
 | FileViewer_Experience | FirmWorks Files Experience Viewer | FirmWorks Files - Experience User |
+| FileViewer_Component_Tools | FirmWorks Files Component Tools | FirmWorks Files Component Tools |
 | Notes_User | FirmWorks Notes User | FirmWorks Notes User |
 | FirmWorks_File_Events | FirmWorks File Events | FirmWorks File Events |
+
+## Files Dashboard and Component Tools access
+
+| Tab | Granted by |
+|---|---|
+| FirmWorks Files Home | FirmWorks Files, FirmWorks Files - Experience User, FirmWorks Files Configurator, FirmWorks Files Reporting |
+| FirmWorks Files Dashboard | FirmWorks Files Configurator, FirmWorks Files Reporting, FirmWorks Files Component Tools. Everyday users with only the FirmWorks Files permission set do not see it. |
+| FirmWorks Files Component Tools | FirmWorks Files Component Tools, plus the View Setup and Configuration, Customize Application and API Enabled permissions. |
+
+The dashboard's file counts cover only the files the user can see unless the user also has **Query All Files**. See [Permission Set to Query All Files](known-issues.md#permission-set-to-query-all-files).
+
+There is no separate permission for [bulk actions](bulk-actions.md). They are enabled per configuration and run with the user's own access to the files.
 
 ## License-controlled features
 
@@ -86,11 +101,9 @@ External users need:
 2. The **FirmWorks_Files_ExperienceUser** permission set group, or the **FirmWorks Files - Experience User** permission set.
 3. **API Enabled** on their profile or permission set if they will use Enhanced Upload or the Browser Viewer. Standard upload and Salesforce's own file previews do not need it.
 
-The Experience User permission set grants these Apex classes and pages. You do not need to add them to profiles by hand:
+The Experience User permission set grants every Apex class and Visualforce page the components need. You do not need to add them to profiles by hand.
 
-`BatchFileUploadController`, `BrowserViewerController`, `BulkFileUploadController`, `ContentDocumentLinkManagerController`, `ContentViewerController`, `ContentVisibilityController`, `FileReportController`, `FileReportInvocable`, `FileTaxonomyController`, `FileTaxonomyException`, `FileViewerController`, `HierarchicalController`, `ObjectFinderController`, `RecordReportController`, `VFUploadController`, and the Visualforce pages `BrowserViewer` and `FileViewer_Support_WTC`.
-
-The Configurator, File Reporting builder and FirmWorks Notes are not available to Experience Cloud users.
+The Configurator, File Reporting builder, Files Dashboard, Component Tools and FirmWorks Notes are not available to Experience Cloud users.
 
 Files uploaded by Experience Cloud users are always shared with **All Users** visibility so internal users can see them. See [Sharing and Visibility](configuration.md#step-10-sharing) for how to default the share type.
 

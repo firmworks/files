@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 description: "Fixes for common FirmWorks Files problems, organized by symptom."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -21,23 +21,28 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 - [Users cannot see files they expect](#users-cannot-see-files-they-expect)
 - [Previews are blurry or missing](#previews-are-blurry-or-missing)
 - [Picklist values are missing for a record type](#picklist-values-are-missing-for-a-record-type)
+- ["Contents too large to display"](#contents-too-large-to-display)
+- [The Select Files to… button is missing](#the-select-files-to-button-is-missing)
+- [Dashboard says page dependency data is unavailable or did not answer](#dashboard-says-page-dependency-data-is-unavailable-or-did-not-answer)
+- [Component Tools shows "Access required"](#component-tools-shows-access-required)
+- [A flow fails after Component Tools replaced its screen components](#a-flow-fails-after-component-tools-replaced-its-screen-components)
 - [Upgrading from a version before 0.15](#upgrading-from-a-version-before-015)
 
 ## Enhanced Upload hangs on "Awaiting Registration"
 
 **Symptom.** Choosing Enhanced Upload shows "Awaiting Registration" indefinitely.
 
-![Awaiting Registration](images/troubleshooting/bulkupload/awaitingregistration.gif)
+![Awaiting Registration](images/troubleshooting/awaitingregistration.gif)
 
 **Cause.** Clickjack protection for Visualforce pages is enabled. Enhanced Upload embeds a Visualforce page from your org's Visualforce domain inside the Lightning page, and clickjack protection blocks that unless the Lightning domain is trusted.
 
-![Clickjack protection enabled](images/troubleshooting/bulkupload/clickjackprotection_enabled.png)
+![Clickjack protection enabled](images/troubleshooting/clickjackprotection_enabled.png)
 
 **Fix.** Add your Lightning domain as a trusted domain for inline frames.
 
 1. Setup > Session Settings > Trusted Domains for Inline Frames > **Add Domain**.
 
-   ![Add trusted domain](images/troubleshooting/bulkupload/clickjackprotection_adddomain.png)
+   ![Add trusted domain](images/troubleshooting/clickjackprotection_adddomain.png)
 
 2. Enter your Lightning domain, for example `https://yourdomain.lightning.force.com`, and choose Visualforce pages as the frame type. To find the exact value, run this in the Developer Console's Execute Anonymous window:
 
@@ -45,11 +50,11 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
    System.debug('https://' + DomainCreator.getLightningHostname());
    ```
 
-   ![Trusted domain record](images/troubleshooting/bulkupload/clickjackprotection_adddomain_record.png)
+   ![Trusted domain record](images/troubleshooting/clickjackprotection_adddomain_record.png)
 
 3. Repeat for each Experience Cloud site domain where Enhanced Upload is used.
 
-![Enhanced Upload working](images/troubleshooting/bulkupload/clickjackprotection_success.png)
+![Enhanced Upload working](images/troubleshooting/clickjackprotection_success.png)
 
 ## "API is disabled for this User"
 
@@ -85,15 +90,15 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 
 ## "Unable to parse the URL parameters correctly"
 
-**Symptom.** Opening a FileViewer link shows this message and FileViewer loads without the intended files or search.
+**Symptom.** Opening a File Manager link shows this message and File Manager loads without the intended files or search.
 
-**Cause.** A `c__contentIds`, `c__search` or `c__reportBuilder` parameter is malformed. Content Ids must be 15 or 18 characters and start with 068 or 069. The other two parameters are encoded by FileViewer and should not be edited by hand.
+**Cause.** A `c__contentIds`, `c__search` or `c__reportBuilder` parameter is malformed. Content Ids must be 15 or 18 characters and start with 068 or 069. The other two parameters are encoded by File Manager and should not be edited by hand.
 
-**Fix.** Regenerate the link with FileViewer's Launch Last Search button or fix the Ids. See [URL parameters](component-appendix.md#url-parameters).
+**Fix.** Regenerate the link with File Manager's Launch Last Search link or fix the Ids. See [URL parameters](component-appendix.md#url-parameters).
 
 ## "Dynamic Field Values: Invalid Fields Detected"
 
-**Symptom.** File Upload & Tagger For Flows shows this error.
+**Symptom.** File Tagger or File Tagger Button shows this error on a flow screen.
 
 **Cause.** The JSON passed to Dynamic Field Values is malformed or names a field that does not exist on Content Version.
 
@@ -116,7 +121,7 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 
 **Causes and fixes.**
 
-- FileViewer only returns files the user can see. Check the file's Content Document Links and their share type and visibility. See [File Sharing and Access Explained](known-issues.md#file-sharing-and-access-explained).
+- File Manager only returns files the user can see. Check the file's Content Document Links and their share type and visibility. See [File Sharing and Access Explained](known-issues.md#file-sharing-and-access-explained).
 - The configuration has a Default Filter or Exclude File Types setting. A warning icon in the search panel indicates a fixed filter.
 - Administrators who need to see every file in the org need the **Query All Files** permission. See [Permission Set to Query All Files](known-issues.md#permission-set-to-query-all-files).
 
@@ -134,13 +139,53 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 
 **Fix.** A user with the Configurator permission set opens `/apex/firmworks__RecordTypeFetcher` and clicks **Query Values And Save To Custom Metadata**. See [Record types on Content Version](permissions.md#record-types-on-content-version).
 
+## "Contents too large to display"
+
+**Symptom.** A text file, note or Outlook message shows this message instead of its content.
+
+**Cause.** Text and message previews are read into the browser and are limited to 2 MB.
+
+**Fix.** Download the file. See [Supported File Types](supported-file-types.md).
+
+## The Select Files to… button is missing
+
+**Symptom.** File Manager has no Select Files to… button, or the Bulk actions pane says "No bulk actions are enabled for this configuration."
+
+**Cause.** No bulk action is enabled in the configuration the component uses. The button appears only when at least one of Download Files, Download Data, Create Public Links, Delete Public Links or the four Allow Bulk settings is on.
+
+**Fix.** Open the configuration in the Configurator, go to Step 11: Actions, and turn on the actions you want. See [Enabling bulk actions](bulk-actions.md#enabling-bulk-actions).
+
+## Dashboard says page dependency data is unavailable or did not answer
+
+**Symptom.** The Lightning Pages With FirmWorks Components tile shows "Page dependency data is unavailable in this org" or "The page dependency query did not answer". Other tiles load.
+
+**Cause.** The tile reads page metadata through the Tooling API and Salesforce's Dependency API, which is a beta feature that may be off in the org, and the query is given 30 seconds. The user also needs API Enabled.
+
+**Fix.** Click Refresh. If the message persists, the rest of the dashboard is still accurate; only the page inventory is affected. Component Tools falls back to scanning pages one by one when the Dependency API is unavailable.
+
+## Component Tools shows "Access required"
+
+**Symptom.** The Component Tools tab lists missing permissions instead of the inventory, or the dashboard's Migrate Aura Component Tools tile will not open.
+
+**Cause.** The user lacks one of: the FirmWorks Files Component Tools permission set, View Setup and Configuration, Customize Application, or API Enabled.
+
+**Fix.** Assign what is listed. A permission set assigned during the current session takes effect at the next login. See [Prerequisites](component-tools.md#prerequisites).
+
+## A flow fails after Component Tools replaced its screen components
+
+**Symptom.** A flow replaced by Component Tools shows a new draft version but a screen does not render, or a later element cannot find an output.
+
+**Cause.** Component Tools creates a new flow version rather than editing the active one. The new version is a draft unless **Activate new flow versions** was ticked, and a placement marked Needs review had a typed value that the LWC does not accept.
+
+**Fix.** Open the flow in Flow Builder, check the screen components' settings against the [Component Reference](component-reference.md), and activate the version. Use the row's Undo in Component Tools if you are still on the page, or activate the previous version in Setup. See [Component Tools](component-tools.md#replacing-placements).
+
 ## Upgrading from a version before 0.15
 
 The June 2022 release (0.15) changed the File Tagger component. If the upgrade fails with the error below, remove the component uses it names, install, then recreate them.
 
-![Upgrade error](images/11-upgrade-error.png)
+![Upgrade error](images/troubleshooting/11-upgrade-error.png)
 
-1. Remove File Tagger Button For Upload from page layouts and Experience Cloud pages. Republish any sites you changed.
-1. Remove File Tagger from page layouts. Keep a note of the settings so you can recreate them.
+1. Remove the Aura File Tagger Button For Upload from page layouts and Experience Cloud pages. Republish any sites you changed.
+1. Remove the Aura File Tagger from page layouts. Keep a note of the settings so you can recreate them.
 1. Remove and delete any custom actions that reference the FileTaxonomy component.
 1. Install the new version, then recreate what you removed.

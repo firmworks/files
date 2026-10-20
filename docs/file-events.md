@@ -2,7 +2,7 @@
 title: "File Events"
 description: "Platform events for Content Document, Content Version and Content Document Link changes, and how to build flows on them."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -12,7 +12,7 @@ Salesforce does not allow record-triggered flows on the Files objects. File Even
 
 For reference, here is how the Salesforce Files objects relate to each other and to FirmWorks Files.
 
-![Salesforce file structure](images/fileevents/fileevents-salesforce-file-structure.png)
+![Salesforce file structure](images/file-events/fileevents-salesforce-file-structure.png)
 
 - [Setup](#setup)
 - [Turning events on and off](#turning-events-on-and-off)
@@ -55,9 +55,9 @@ If you are new to flows, Salesforce's [Automate Business Processes](https://trai
 2. Choose one of the FirmWorks events: **Content Document Event**, **Content Document Link Event** or **Content Version Event**.
 3. Build the flow as you would a record-triggered flow. The event's fields are available on `$Record`.
 
-![Platform event triggered flow](images/fileevents/fileevents-fef-flows1.png)
+![Platform event triggered flow](images/file-events/fileevents-fef-flows1.png)
 
-![Choosing a FirmWorks event](images/fileevents/fileevents-fef-flows2.png)
+![Choosing a FirmWorks event](images/file-events/fileevents-fef-flows2.png)
 
 Which event to use:
 
@@ -119,7 +119,7 @@ Both take a Content Document Id. The Content Document Event flow template shows 
 
 A separate, unmanaged package can publish an event whenever a file's contents are downloaded. It is available on request from <support@getfirmworks.com>. Each event records who downloaded the file, when, which file, and how (Salesforce UI, public link, REST API, SOQL and so on).
 
-![Content Download Events](images/fileevents/content_download_setting.png)
+![Content Download Events](images/file-events/content_download_setting.png)
 
 Example event from a download in the Salesforce interface:
 

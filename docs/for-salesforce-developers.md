@@ -2,7 +2,7 @@
 title: "For Salesforce Developers"
 description: "How FirmWorks Files fits a developer toolkit: standard objects, File Events, invocable actions, flow components and deployable configuration."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -38,14 +38,21 @@ description: "How FirmWorks Files fits a developer toolkit: standard objects, Fi
   with or without matching documents.
 
 ### Components with full App Builder and Flow metadata
-- `Content Viewer (LWC)` exposes typed properties (record Id, Id collection, configuration name via an
-  Apex datasource, tab style, delete toggle, height, image width) on record pages, app pages,
-  Experience Cloud, and Flow screens, with a custom property editor for Flow.
-- Aura components for File Viewer, Tag & Upload, Record Report, and Notes implement
-  `force:hasRecordId`, `lightning:isUrlAddressable`, `lightning:availableForFlowScreens`, and
-  Experience Cloud interfaces.
-- Flow-screen variants of File Viewer, Tag & Upload, and Record Report accept and return values so
-  uploads can be validated before a Flow advances.
+- Every placeable component is a Lightning Web Component: `fileManager`, `fileTagger`,
+  `fileTaggerLauncher`, `recordReporter`, `contentViewerListLWC`, `contentViewerLWC`,
+  `contentNotesManager`, `filesHome`, `filesDashboard` and `componentMigrator`, each with typed
+  properties per target (record page, app page, home page, Experience Cloud, Flow screen, tab, record
+  action, URL addressable) and configuration names from an Apex datasource.
+- Each Flow screen component ships a custom property editor (`*_config`) that accepts a literal or a
+  Flow resource per input and validates before save.
+- File Tagger returns the uploaded Content Document, Content Version and Content Document Link Ids;
+  Record Reporter returns a boolean result, so uploads can be validated before a Flow advances.
+- The Aura components remain in the package for backward compatibility and are retired; the
+  `componentMigrator` LWC and its `componentMigrationMap` list the property mapping from each Aura
+  bundle to its LWC replacement.
+- Components on a page coordinate through the **FirmWorks Files Application State** Lightning
+  message channel (`FilesApplicationState`), which is exposed: subscribe to it to react when a
+  FirmWorks component inserts, updates or deletes files.
 
 ### Configuration as deployable metadata
 - Every behavior lives in Custom Metadata (`File_Viewer_Configuration__mdt`,
@@ -53,6 +60,8 @@ description: "How FirmWorks Files fits a developer toolkit: standard objects, Fi
   Build in a sandbox, retrieve, version in source control, deploy with the CLI.
 - Configurations reference field API names and JSON, so they survive org refreshes and can be
   generated or audited programmatically.
+- Saved reports carry a stable developer name (the Report Identifier) that invocables, Record
+  Reporter and the File Report Event reference, so a report can be deployed and wired up by name.
 
 ### Extensibility surface
 - Global Apex request/response classes for the invocables (`PublicLinkRequest`, `PublicLinkResult`,
@@ -65,8 +74,11 @@ description: "How FirmWorks Files fits a developer toolkit: standard objects, Fi
   in `docs/filesconnect`.
 
 ### Performance and scale
-- Server-side paging, configurable results-per-page, and search parameters designed for orgs with
-  tens of thousands of documents.
+- Server-side paging, configurable results-per-page, cursor-based paging past 2,000 results, and
+  search parameters designed for orgs with tens of thousands of documents.
+- Long text fields are returned as 255-character previews with a byte budget per page; full rows are
+  fetched in batches on demand, so wide Content Version objects do not blow the response size.
+- Bulk actions call Apex in chunks of 200 documents so triggers and File Events fire within limits.
 - Scheduled reports run as Batch Apex to stay within governor limits on large data volumes.
 - Enhanced upload uses the REST API for large multi-file drops rather than the 10-file Lightning
   limit.

@@ -2,7 +2,7 @@
 title: "Grant FirmWorks Support Access"
 description: "How to grant FirmWorks Support login access to your Salesforce org, and what FirmWorks will never ask for."
 ---
-<img src="images/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
+<img src="images/shared/firmworksfiles.svg" alt="FirmWorks Files" width="64" height="64"/>
 
 [Back To Documentation](index.md)
 
@@ -36,7 +36,7 @@ No one within FirmWorks Support may log in to your Org to resolve issues without
 1. Set the Access Duration option to FirmWorks Support. Note: To avoid unnecessary back and forth granting access please allow ample time for our team to address the request. You may choose to revoke access after the engagement has completed.
 1. Click Save.
 
-![Granting Access](images/support/grant_login_access.gif)
+![Granting Access](images/support-support/grant_login_access.gif)
 
 ### Salesforce Classic
 
