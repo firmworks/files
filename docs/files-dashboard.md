@@ -47,7 +47,7 @@ The component **FirmWorks Files Dashboard** can also be dropped onto any Lightni
 
 ### File Storage
 
-Two meters from the org's limits. **File Storage** is the large one, with "N of M used (P%)". **Data Storage** sits beneath it. Values are in MB below 1 GB and GB above. A meter turns amber at 70% and red at 90%. If a limit cannot be read the meter says "Storage limit unavailable".
+Two meters from the org's limits. **File Storage** is the large one, with "N of M used (P%)". **Data Storage** sits beneath it. Values are in MB below 1 GB and GB above. A meter turns amber at 70% and red at 90%. Both meters always appear. If the org does not report a limit, the meter says "N used, limit unavailable" when usage is known, or "Storage usage unavailable", and shows no status icon. If the storage request fails, the error appears beneath the meters; the rest of the dashboard still loads.
 
 Below the meters, the tile reports whether **Files Connect** is set up: "Files Connect is configured: N external data source(s)", listing each source and its type (SharePoint Online, Google Drive, Box, Quip, OneDrive and so on), or "Files Connect is not configured". The **External data sources** link opens Setup.
 

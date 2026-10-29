@@ -8,7 +8,7 @@ description: "Documentation for FirmWorks Files, the native Salesforce applicati
 
 FirmWorks Files is a native Salesforce application designed to make the storing, retrieving and editing of Content faster and easier.
 
-**New in 2.1:** every component is now a Lightning Web Component, File Manager gains [bulk actions](bulk-actions.md) and a Versions tab, and the app gains a [Files Dashboard](files-dashboard.md). See the [Release Notes](release-notes.md) and [Upgrading to Lightning Web Components](component-tools.md).
+**New in 2.3:** upgrading sends a notification that points admins at the [Files Dashboard](files-dashboard.md) and [Component Tools](component-tools.md), the dashboard storage meters stand on their own, and the retired FileViewer gets the **Select Files to…** button. Since 2.1 every component is a Lightning Web Component and File Manager has [bulk actions](bulk-actions.md). See the [Release Notes](release-notes.md).
 
 ## Why FirmWorks Files
 

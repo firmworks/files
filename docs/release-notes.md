@@ -8,6 +8,34 @@ description: "What changed in each FirmWorks Files release."
 
 # FirmWorks Files Release Notes
 
+## 2.3 (includes 2.2)
+
+### Upgrade notification
+
+Upgrading from a version earlier than 2.3 sends a Salesforce notification, **FirmWorks Files: New LWC Components Available**, once the install finishes. It goes to the user who ran the upgrade and to every active user holding the **FirmWorks Files Configurator** permission set, directly or through a permission set group; when nobody holds it, users with Modify All Data, Customize Application and View Setup and Configuration are notified instead. Opening the notification goes to the [Files Dashboard](files-dashboard.md), where the Component Tools tile counts the pages and flows still on retired components. Fresh installs and later upgrades do not send it.
+
+- The package now includes a custom notification type, **FirmWorks Notifications**, delivered to desktop and mobile.
+
+### Files Dashboard
+
+- The storage meters load in their own request, so a license or permission set query that fails no longer takes the File Storage tile down with it.
+- Both meters always appear. A meter whose limit the org does not report reads "N used, limit unavailable" when usage is known, or "Storage usage unavailable", and shows no status icon. If the storage request itself fails, the message appears beneath the meters. See [Files Dashboard](files-dashboard.md#file-storage).
+
+### Retired FileViewer
+
+The retired Aura FileViewer now matches File Manager's header: the actions menu is replaced by a **Select Files to…** button that loads the result set into the selector, shown when the user may download files or data.
+
+- The selector gains **Download Data** for the selected files, alongside Refine and Download Files.
+- Create Public Links, Create Public Links With Password, Remove Public Links and Download Relationships are no longer offered by the retired component. Use the Public links tab of File Manager's [bulk actions](bulk-actions.md) instead.
+
+### Installation (2.2)
+
+- Installing into an org whose Account organization-wide default is Public Read/Write failed because the package referenced the AccountShare object, which those orgs do not have. The package no longer depends on it.
+
+### Languages
+
+The new labels are translated into Spanish, Spanish (Mexico) and French.
+
 ## 2.1 (includes 0.93, 0.94 and 0.95)
 
 ### Lightning Web Components
