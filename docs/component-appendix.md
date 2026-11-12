@@ -80,7 +80,7 @@ The search panel sits on the left. Click **Apply** to run the search, or turn on
 6. **Exclude File Types**: untick a type to include it. The administrator sets which types are excluded by default, usually Salesforce Notes.
 7. **Related Records**: when the configuration has [Searching Related](configuration.md#step-9-searching-related) paths, a tree of related records appears. Expand a level, tick the records whose files you want included, and Apply. Some relationships may be selected for you automatically.
 8. **Reports**: when the configuration enables the report runner, a **Select Report To Run** list lets you run a saved [File Report](file-reporting.md). The report's documents become the result set and you can filter them further.
-9. **Sort by** and **Order** sort by any sortable field, ascending or descending.
+9. **Sort by** and **Order** sort by any sortable field, ascending or descending. Your choice is remembered and restored on your next visit, ahead of the administrator's default sort.
 10. **Results Per Page** sets how many files show per page. The administrator sets the default.
 11. **Launch Last Search** appears after a search. See [Sharing a search](#sharing-a-search).
 
@@ -108,7 +108,7 @@ The tile size buttons (plus and minus) and the Width slider in settings change h
 List view shows one row per file with tag fields as columns, and a preview pane on the right.
 
 1. Click the pencil in a cell to edit it. Each field validates according to its type. **Use Last Modified Values**, in the grid's menu, offers the value you last entered in a field as the default when you edit the next row. Useful for tagging many similar files.
-1. Drag a column edge to resize it. Column widths are remembered for the session.
+1. Drag a column edge to resize it. Column widths are remembered on your browser, like the other settings, until you use **Clear Cache**.
 1. Click the eye icon on a row to open the file in the preview pane. A button collapses the pane to give the list more room.
 1. Edits on earlier pages are kept while you move between pages.
 

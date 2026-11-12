@@ -83,7 +83,7 @@ Applies to File Manager.
 | Setting | What it does |
 |---|---|
 | Content Version Fields → Available To User's For Display | Move the fields users may display in File Manager into the right-hand list. Fields are grouped by type and can be dragged to reorder; the order is kept for List view columns. |
-| Default Show These Fields | Of the available fields, which are shown before the user customizes their view. **All** selects every field. |
+| Default Show These Fields | Of the available fields, which are shown before the user customizes their view. **All** selects every field. Reordering or removing fields keeps each field's choice; a newly added field starts checked. |
 | Make These Fields Read-Only | Fields users can see but not edit in File Manager. In Tile view read-only fields move to the end of the list. |
 | Conditionally Show Field When Filtering | Show a display field only when a controlling picklist or multi-select picklist filter field has one of the listed values. |
 
@@ -204,7 +204,7 @@ Applies to File Manager and Content Viewer.
 | Setting | What it does |
 |---|---|
 | Where clause | A SOQL condition appended to every query, for example `(Document_Type__c IN ('NDA','MSA') OR Is_Signed__c = true)`. Users cannot remove it. File Manager shows a warning icon in the search panel when one is active. |
-| Order By | Default sort field. |
+| Order By | The order Content Viewer shows a record's files in, and File Manager's starting Sort By. A Sort By the user picks in File Manager is remembered on their browser and wins over this default. Applies with or without a Where clause. |
 | Direction | ASC or DESC. |
 
 ![Default filter warning](images/configuration/configuration-deafult-filter-warning.png)

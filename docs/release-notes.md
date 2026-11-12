@@ -8,6 +8,18 @@ description: "What changed in each FirmWorks Files release."
 
 # FirmWorks Files Release Notes
 
+## 2.4
+
+### File Manager
+
+- **Sort By** and **Order** are remembered. The sort a user picks is kept per user, and per component when a Cache Id is set, and is restored on their next visit ahead of the configuration's Order By. A search carried in the URL still wins. A remembered field the configuration no longer offers is ignored, and **Clear Cache** forgets the sort. The retired FileViewer remembers its sort the same way.
+- Settings now outlive the browser tab. The Lightning Web Component File Manager kept the settings gear choices and resized column widths in session storage, so closing the tab forgot them and users set them again. They are now kept in the browser's local storage, like the retired FileViewer's cookies, and values the earlier build stored are carried over. The same applies to File Report Results' Grouped / Details view, Pages / Scroll, Results Per Page and column sorts.
+
+### Configurator
+
+- The Default Filter's **Order By** is applied on its own. A configuration saved with an Order By but no Where clause dropped the sort, so File Manager and Content Viewer sorted by Id. Order By is now File Manager's starting Sort By and the order Content Viewer shows a record's files in, with or without a Where clause. See [Step 8: Default Filter](configuration.md#step-8-default-filter).
+- Reordering or removing Display Fields keeps each field's **Default Show These Fields** choice. A newly added field starts checked. Before, any change to the selected fields reset the choice to all.
+
 ## 2.3 (includes 2.2)
 
 ### Upgrade notification
