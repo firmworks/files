@@ -26,7 +26,7 @@ This page is the end-user guide. Administrators enable each action in a configur
 
 ## Opening the selector
 
-Run a search in [File Manager](component-appendix.md), then click **Select Files to…** in the header. The button is hidden when no bulk action is enabled for the configuration, and disabled while the search has no results or the selector is already open.
+Run a search in [File Manager](component-appendix.md), then click **Select Files to…** in the header. The button is disabled while the search has no results or the selector is already open. Every user has it, because refining a search is part of the selector; the **Bulk actions** pane beside the selector appears only when a bulk action is enabled for the configuration.
 
 ![Select Files to… button in the File Manager header](images/bulk-actions/select-files-button.png)
 
@@ -38,7 +38,7 @@ Above the selector:
 - **Initially Select All** selects every file as soon as the selector loads. It is on by default and remembered per browser.
 - **Close Selector** returns to the normal results. If you edited fields or deleted files, the search re-runs so the results are current.
 
-The **Refine** button on the results toolbar opens the same selector without the actions pane. Use it to narrow a search by hand: select the files you want, click **Refine Results**, and File Manager shows only those files until you clear the search.
+To narrow a search by hand, select the files you want and click **Refine Search Results** in the selector's footer. File Manager shows only those files and a **Refined** badge beside the result count. Paging keeps the refinement; Apply, Clear, a filter change with Auto Update On Criteria Changes on, or running a report replaces it.
 
 ![The selector with the Bulk actions pane beside it](images/bulk-actions/selector-and-pane.png)
 
@@ -179,7 +179,7 @@ Every action runs with the user's own permissions and sharing. A file the user c
 
 ## Enabling bulk actions
 
-Administrators turn bulk actions on per [FirmWorks Files Configuration](configuration.md#step-11-actions), in **Step 11: Actions**. The **Select Files to…** button appears as soon as any of these is on. The four Bulk Actions settings are off by default.
+Administrators turn bulk actions on per [FirmWorks Files Configuration](configuration.md#step-11-actions), in **Step 11: Actions**. The **Bulk actions** pane appears beside the selector as soon as any of these is on; the Select Files to… button and Refine Search Results are there regardless. The four Bulk Actions settings are off by default.
 
 | Setting | Enables |
 |---|---|

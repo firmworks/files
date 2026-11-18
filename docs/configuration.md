@@ -129,6 +129,7 @@ Defaults for how components look and behave. Three groups.
 |---|---|---|
 | Results View Tiles Or List | Default, Tile View, List View | The view shown on load. |
 | Show Search Panel | User, Hidden, Off, On | Same as the component's Search Panel Option. User remembers each user's last choice. |
+| Search On Load | Default, Off, On | Whether File Manager searches as soon as it opens. Default searches on open only on a record page, when file Ids are passed in, or when a dynamic filter value is set. Off waits for the user to click Apply and shows "Set your filters and click Apply to load files" until then. On always searches on open. When Show Search Panel is Hidden there is no Apply button, so Off behaves as On. |
 | Tile Layout Orientation | Default, Horizontal View, Vertical View | Whether a tile's preview and fields sit side by side or stacked. |
 | Default Record View State | Default (view), Edit Mode, Read-Only View | How file records open. |
 | Scroll List | Scroll, Auto Fit | Scroll lets List view columns expand to their content with a horizontal scroll bar. |

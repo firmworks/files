@@ -22,7 +22,7 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 - [Previews are blurry or missing](#previews-are-blurry-or-missing)
 - [Picklist values are missing for a record type](#picklist-values-are-missing-for-a-record-type)
 - ["Contents too large to display"](#contents-too-large-to-display)
-- [The Select Files to… button is missing](#the-select-files-to-button-is-missing)
+- [The Bulk actions pane is missing](#the-bulk-actions-pane-is-missing)
 - [Dashboard says page dependency data is unavailable or did not answer](#dashboard-says-page-dependency-data-is-unavailable-or-did-not-answer)
 - [Component Tools shows "Access required"](#component-tools-shows-access-required)
 - [A flow fails after Component Tools replaced its screen components](#a-flow-fails-after-component-tools-replaced-its-screen-components)
@@ -147,11 +147,11 @@ Problems by symptom. If yours is not here, contact <support@getfirmworks.com> an
 
 **Fix.** Download the file. See [Supported File Types](supported-file-types.md).
 
-## The Select Files to… button is missing
+## The Bulk actions pane is missing
 
-**Symptom.** File Manager has no Select Files to… button, or the Bulk actions pane says "No bulk actions are enabled for this configuration."
+**Symptom.** Select Files to… opens the selector with only Refine Search Results and no Bulk actions pane beside it.
 
-**Cause.** No bulk action is enabled in the configuration the component uses. The button appears only when at least one of Download Files, Download Data, Create Public Links, Delete Public Links or the four Allow Bulk settings is on.
+**Cause.** No bulk action is enabled in the configuration the component uses. The pane appears only when at least one of Download Files, Download Data, Create Public Links, Delete Public Links or the four Allow Bulk settings is on. Before 2.5 the whole button was hidden in this case.
 
 **Fix.** Open the configuration in the Configurator, go to Step 11: Actions, and turn on the actions you want. See [Enabling bulk actions](bulk-actions.md#enabling-bulk-actions).
 

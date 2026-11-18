@@ -34,7 +34,7 @@ File Manager is the component behind the **File Search** tab and the FirmWorks F
 
 ![File Manager header with the settings gear and Select Files to… button](images/component-appendix/header.png)
 
-From left to right: the component title, a badge with the number of results, the **Settings** gear, and **Select Files to…** when the administrator has enabled any [bulk action](bulk-actions.md). Two icons appear only when you have customised the view: one resets the displayed fields to the administrator's defaults, the other resets the search fields.
+From left to right: the component title, a badge with the number of results, a **Refined** badge while you have narrowed the results by hand, the **Settings** gear, and **Select Files to…**, which opens the file selector for refining the search and for any [bulk action](bulk-actions.md) the administrator has enabled. Two icons appear only when you have customised the view: one resets the displayed fields to the administrator's defaults, the other resets the search fields.
 
 ## Settings
 
@@ -68,7 +68,7 @@ Each toggle shows or hides a tab on every file. A tab is only offered when the c
 
 ## Search panel
 
-The search panel sits on the left. Click **Apply** to run the search, or turn on **Auto Update On Criteria Changes** in the menu beside it to search as you change filters. **Clear** resets every filter.
+The search panel sits on the left. Click **Apply** to run the search, or turn on **Auto Update On Criteria Changes** in the menu beside it to search as you change filters. **Clear** resets every filter and empties the results. Depending on the configuration's Search On Load setting, File Manager either searches as soon as it opens or shows "Set your filters and click Apply to load files" until you click Apply.
 
 ![Search panel with a tag filter, a numeric filter and a date filter](images/component-appendix/search-panel.png)
 
@@ -88,7 +88,7 @@ A warning icon reading "Admin Has A Configured Default Query Applied" means the 
 
 ## Results
 
-Results page through with **First**, **Previous**, **Next** and **Last**. The **Refine** button opens the file selector so you can hand-pick files from the whole result set and show only those; see [Bulk actions](#bulk-actions).
+Results page through with **First**, **Previous**, **Next** and **Last**. To hand-pick files from the whole result set and show only those, open the file selector with **Select Files to…** and use **Refine Search Results**; see [Bulk actions](#bulk-actions).
 
 When the view includes large text fields, a **Limited fields** notice explains that values are previews. **Load full text (slower)** fetches the complete values in batches, and **Show previews** returns to the fast mode. A single row can be loaded in full from its row menu.
 
@@ -179,7 +179,7 @@ On phones and tablets each download opens with a short delay and Salesforce may 
 
 ## Bulk actions
 
-**Select Files to…** loads every file from the current search into a selector where you can pick any number of them and then edit their tags, link or unlink records, change their owner, create or remove public links, download them or delete them. The same selector opens from **Refine** to narrow a search by hand. The full guide is [Bulk Actions](bulk-actions.md).
+**Select Files to…** loads every file from the current search into a selector where you can pick any number of them. **Refine Search Results** in the selector's footer narrows the search to your picks, and the Bulk actions pane beside it, when the administrator has enabled any action, lets you edit their tags, link or unlink records, change their owner, create or remove public links, download them or delete them. The full guide is [Bulk Actions](bulk-actions.md).
 
 ## Sharing a search
 

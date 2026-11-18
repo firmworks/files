@@ -8,6 +8,25 @@ description: "What changed in each FirmWorks Files release."
 
 # FirmWorks Files Release Notes
 
+## 2.5
+
+### File Manager
+
+- **Search On Load.** A new View Settings choice in the Configurator decides whether File Manager searches as soon as it opens. **Default** keeps the earlier behavior: it searches on open on a record page, when a list of file Ids is passed in, or when a dynamic filter value is set, and otherwise waits. **Off** always waits, and the empty results area reads "Set your filters and click Apply to load files". **On** always searches on open. When the search panel is Hidden there is no Apply button, so Off loads on open anyway and the Configurator says so. See [Step 5: View Settings](configuration.md#step-5-view-settings).
+- **Clear** now empties the results, the paging and the open file's details as well as the filters, and brings the Apply hint back. A search that was still on its way when Clear was clicked no longer repaints the view afterwards.
+- **Refine moves into the selector.** The Refine button on the results toolbar is gone. **Select Files to…** now appears for everyone, and **Refine Search Results** is the selector's own footer button, so any user can hand-pick files from a search. The Bulk actions pane beside the selector appears only when the configuration allows a bulk action; a user without one gets the selector alone.
+- While a refinement is in force, a **Refined** badge sits beside the result count. The refinement now ends with Apply, Clear, a filter change with Auto Update On Criteria Changes on, or running a report; before, it lasted until Clear. Paging keeps it.
+
+### Retired FileViewer
+
+The retired Aura FileViewer gets the same Search On Load setting, the Apply hint, the fuller Clear, the Refined badge and the always-shown Select Files to… button.
+
+- Its selector gains the Bulk actions pane's **Download** tab beside it when the configuration allows Download Files or Download Data, with **Download Files**, **Download Data** and **Download Relationships** for the selection. Download Relationships, dropped from the retired component in 2.3, is offered again this way. The selector's footer keeps Refine Search Results.
+
+### Languages
+
+The new labels are translated into Spanish, Spanish (Mexico) and French.
+
 ## 2.4
 
 ### File Manager

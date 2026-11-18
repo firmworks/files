@@ -8,7 +8,7 @@ description: "Documentation for FirmWorks Files, the native Salesforce applicati
 
 FirmWorks Files is a native Salesforce application designed to make the storing, retrieving and editing of Content faster and easier.
 
-**New in 2.4:** File Manager remembers your Sort By, settings and column widths across browser sessions, and a configuration's Order By applies without a Where clause. In 2.3, upgrading sends a notification that points admins at the [Files Dashboard](files-dashboard.md) and [Component Tools](component-tools.md). Since 2.1 every component is a Lightning Web Component and File Manager has [bulk actions](bulk-actions.md). See the [Release Notes](release-notes.md).
+**New in 2.5:** a configuration's **Search On Load** setting decides whether File Manager searches on open or waits for Apply, Clear also empties the results, and **Refine Search Results** lives in the **Select Files to…** selector, which every user now gets. In 2.4, File Manager remembers your Sort By, settings and column widths across browser sessions. In 2.3, upgrading sends a notification that points admins at the [Files Dashboard](files-dashboard.md) and [Component Tools](component-tools.md). Since 2.1 every component is a Lightning Web Component and File Manager has [bulk actions](bulk-actions.md). See the [Release Notes](release-notes.md).
 
 ## Why FirmWorks Files
 
