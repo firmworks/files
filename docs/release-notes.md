@@ -23,9 +23,6 @@ The retired Aura FileViewer gets the same Search On Load setting, the Apply hint
 
 - Its selector gains the Bulk actions pane's **Download** tab beside it when the configuration allows Download Files or Download Data, with **Download Files**, **Download Data** and **Download Relationships** for the selection. Download Relationships, dropped from the retired component in 2.3, is offered again this way. The selector's footer keeps Refine Search Results.
 
-### Languages
-
-The new labels are translated into Spanish, Spanish (Mexico) and French.
 
 ## 2.4
 
